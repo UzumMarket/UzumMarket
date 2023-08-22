@@ -3,9 +3,7 @@ package product;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
+import java.util.*;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class ProductService {
@@ -31,4 +29,15 @@ public class ProductService {
     public static ProductService getInstance() {
         return productService;
     }
+
+    public List<Product> findByCategoryId(UUID categoryId) {
+        List<Product> products = new ArrayList<>();
+        for (Product product : getAll()) {
+            if (product.getCategories_id().equals(categoryId)) {
+                products.add(product);
+            }
+        }
+        return products;
+    }
+
 }
