@@ -1,0 +1,32 @@
+Index: src/main/java/user/UserRepository.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package user;\r\n\r\nimport common.BaseRepository;\r\nimport lombok.AccessLevel;\r\nimport lombok.NoArgsConstructor;\r\n\r\nimport java.util.UUID;\r\n\r\n@NoArgsConstructor(access = AccessLevel.PRIVATE)\r\npublic class UserRepository extends BaseRepository<UUID, User> {\r\n    private static final UserRepository userRepository = new UserRepository();\r\n\r\n    @Override\r\n    protected String getFileName() {\r\n        return \"src/resources/users.txt\";\r\n    }\r\n\r\n    public static UserRepository getInstance() {\r\n        return userRepository;\r\n    }\r\n\r\n}\r\n
+===================================================================
+diff --git a/src/main/java/user/UserRepository.java b/src/main/java/user/UserRepository.java
+--- a/src/main/java/user/UserRepository.java	
++++ b/src/main/java/user/UserRepository.java	
+@@ -1,22 +1,4 @@
+ package user;
+ 
+-import common.BaseRepository;
+-import lombok.AccessLevel;
+-import lombok.NoArgsConstructor;
+-
+-import java.util.UUID;
+-
+-@NoArgsConstructor(access = AccessLevel.PRIVATE)
+-public class UserRepository extends BaseRepository<UUID, User> {
+-    private static final UserRepository userRepository = new UserRepository();
+-
+-    @Override
+-    protected String getFileName() {
+-        return "src/resources/users.txt";
+-    }
+-
+-    public static UserRepository getInstance() {
+-        return userRepository;
+-    }
+-
++public class UserRepository {
+ }
