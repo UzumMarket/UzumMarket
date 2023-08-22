@@ -12,17 +12,17 @@ public class Gmail extends BaseEmail {
     private final static Gmail gmail = new Gmail();
 
     @Override
-    protected BaseEmail newSession(Properties properties) {
-        return super.newSession(properties);
+    public Gmail newSession(Properties properties) {
+        return newSession(properties);
     }
 
     @Override
-    protected BaseEmail newMessage(String subject, String body, String to) {
-        return super.newMessage(subject, body, to);
+    public Gmail newMessage(String subject, String body, String to) {
+        return newMessage(subject, body, to);
     }
 
     @Override
-    protected void execute() {
+    public void execute() {
         super.execute();
     }
 

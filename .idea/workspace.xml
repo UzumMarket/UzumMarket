@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1cce45e6-4b76-45e5-acc8-023eabb41a8b" name="Changes" comment="SSSSS">
-      <change afterPath="$PROJECT_DIR$/src/main/java/mail/Gmail.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/mail/base/BaseEmail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    <list default="true" id="1cce45e6-4b76-45e5-acc8-023eabb41a8b" name="Changes" comment="Changed Mail">
+      <change beforePath="$PROJECT_DIR$/src/main/java/mail/Gmail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mail/Gmail.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +36,7 @@
     </excluded-from-favorite>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="Xojiakbar" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -98,7 +94,21 @@
       <option name="project" value="LOCAL" />
       <updated>1692708872236</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Mail">
+      <created>1692711243758</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1692711243758</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Changed Mail">
+      <created>1692711500284</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1692711500284</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -107,6 +117,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Entity" />
     <MESSAGE value="SS" />
-    <option name="LAST_COMMIT_MESSAGE" value="SS" />
+    <MESSAGE value="Mail" />
+    <MESSAGE value="Changed Mail" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed Mail" />
   </component>
 </project>
