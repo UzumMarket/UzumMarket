@@ -14,6 +14,7 @@ public abstract class BaseRepository<ID, ENTITY extends BaseEntity<ID>> implemen
     @Override
     public ENTITY add(ENTITY entity) {
         List<ENTITY> entities = readToFile();
+        entities.add(entity);
         writeToFile(entities);
         return entity;
     }
