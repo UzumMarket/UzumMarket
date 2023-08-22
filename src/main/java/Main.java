@@ -4,6 +4,9 @@ public class Main {
 
          System.out.println("Barchasi Togirlandi iltimos extiyot bulib ishlating" +
                  "agar ochirib yuborsangiz uziz qilib chiqasiz");
+    }
 
+    private void s(){
+        System.out.println("s");
     }
 }
