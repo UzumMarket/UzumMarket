@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1cce45e6-4b76-45e5-acc8-023eabb41a8b" name="Changes" comment="kerwoasdht f8o3i rfufiu34wqejf" />
+    <list default="true" id="1cce45e6-4b76-45e5-acc8-023eabb41a8b" name="Changes" comment="Push10">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -96,7 +98,7 @@
       <workItem from="1692711133716" duration="1000" />
       <workItem from="1692711223408" duration="233000" />
       <workItem from="1692711472084" duration="33000" />
-      <workItem from="1692712799204" duration="1697000" />
+      <workItem from="1692712799204" duration="2421000" />
     </task>
     <task id="LOCAL-00001" summary="Entity">
       <created>1692694492175</created>
@@ -129,7 +131,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692714490695</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Push10">
+      <option name="closed" value="true" />
+      <created>1692714768344</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1692714768344</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -150,6 +160,7 @@
     <MESSAGE value="Entity" />
     <MESSAGE value="Push qilindi" />
     <MESSAGE value="kerwoasdht f8o3i rfufiu34wqejf" />
-    <option name="LAST_COMMIT_MESSAGE" value="kerwoasdht f8o3i rfufiu34wqejf" />
+    <MESSAGE value="Push10" />
+    <option name="LAST_COMMIT_MESSAGE" value="Push10" />
   </component>
 </project>
