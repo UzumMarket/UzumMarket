@@ -1,0 +1,135 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"1cce45e6-4b76-45e5-acc8-023eabb41a8b\" name=\"Changes\" comment=\"Push10\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"ExportToHTMLSettings\">\r\n    <option name=\"OUTPUT_DIRECTORY\" value=\"$PROJECT_DIR$/../UzumMarket\\exportToHTML\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Enum\" />\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <excluded-from-favorite>\r\n      <branch-storage>\r\n        <map>\r\n          <entry type=\"REMOTE\">\r\n            <value>\r\n              <list>\r\n                <branch-info repo=\"$PROJECT_DIR$\" source=\"origin/master\" />\r\n              </list>\r\n            </value>\r\n          </entry>\r\n        </map>\r\n      </branch-storage>\r\n    </excluded-from-favorite>\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"master\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\">{\r\n  &quot;lastFilter&quot;: {\r\n    &quot;state&quot;: &quot;OPEN&quot;\r\n  }\r\n}</component>\r\n  <component name=\"GithubPullRequestsUISettings\">\r\n    <option name=\"selectedUrlAndAccountId\">\r\n      <UrlAndAccount>\r\n        <option name=\"accountId\" value=\"8746db67-afca-4259-9e7d-697cfc94ce29\" />\r\n        <option name=\"url\" value=\"https://github.com/UzumMarket/UzumMarket.git\" />\r\n      </UrlAndAccount>\r\n    </option>\r\n  </component>\r\n  <component name=\"MavenImportPreferences\">\r\n    <option name=\"generalSettings\">\r\n      <MavenGeneralSettings>\r\n        <option name=\"useMavenConfig\" value=\"true\" />\r\n      </MavenGeneralSettings>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2UKgzpGoedq9mJLRQGwp67N4ebW\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,\r\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\r\n  }\r\n}</component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"1cce45e6-4b76-45e5-acc8-023eabb41a8b\" name=\"Changes\" comment=\"\" />\r\n      <created>1692693951110</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1692693951110</updated>\r\n      <workItem from=\"1692693952364\" duration=\"674000\" />\r\n      <workItem from=\"1692695812509\" duration=\"383000\" />\r\n      <workItem from=\"1692711027376\" duration=\"97000\" />\r\n      <workItem from=\"1692711133716\" duration=\"1000\" />\r\n      <workItem from=\"1692711223408\" duration=\"233000\" />\r\n      <workItem from=\"1692711472084\" duration=\"33000\" />\r\n      <workItem from=\"1692712799204\" duration=\"2421000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Entity\">\r\n      <created>1692694492175</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1692694492175</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Push qilindi\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1692713666413</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1692713666413</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"Push qilindi\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1692713824107</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1692713824107</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"kerwoasdht f8o3i rfufiu34wqejf\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1692714490695</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1692714490695</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"Push10\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1692714768344</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1692714768344</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"6\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"Entity\" />\r\n    <MESSAGE value=\"Push qilindi\" />\r\n    <MESSAGE value=\"kerwoasdht f8o3i rfufiu34wqejf\" />\r\n    <MESSAGE value=\"Push10\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Push10\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision f6722d9ac50f4dfc610adc806af4314c6436b18e)
++++ b/.idea/workspace.xml	(date 1692708633266)
+@@ -4,16 +4,14 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="1cce45e6-4b76-45e5-acc8-023eabb41a8b" name="Changes" comment="Push10">
+-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++    <list default="true" id="1cce45e6-4b76-45e5-acc8-023eabb41a8b" name="Changes" comment="Entity">
++      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/user/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/user/UserRepository.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+     <option name="LAST_RESOLUTION" value="IGNORE" />
+-  </component>
+-  <component name="ExportToHTMLSettings">
+-    <option name="OUTPUT_DIRECTORY" value="$PROJECT_DIR$/../UzumMarket\exportToHTML" />
+   </component>
+   <component name="FileTemplateManagerImpl">
+     <option name="RECENT_TEMPLATES">
+@@ -44,19 +42,6 @@
+     </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+   </component>
+-  <component name="GitHubPullRequestSearchHistory">{
+-  &quot;lastFilter&quot;: {
+-    &quot;state&quot;: &quot;OPEN&quot;
+-  }
+-}</component>
+-  <component name="GithubPullRequestsUISettings">
+-    <option name="selectedUrlAndAccountId">
+-      <UrlAndAccount>
+-        <option name="accountId" value="8746db67-afca-4259-9e7d-697cfc94ce29" />
+-        <option name="url" value="https://github.com/UzumMarket/UzumMarket.git" />
+-      </UrlAndAccount>
+-    </option>
+-  </component>
+   <component name="MavenImportPreferences">
+     <option name="generalSettings">
+       <MavenGeneralSettings>
+@@ -65,7 +50,7 @@
+     </option>
+   </component>
+   <component name="ProjectId" id="2UKgzpGoedq9mJLRQGwp67N4ebW" />
+-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
++  <component name="ProjectLevelVcsManager">
+     <ConfirmationsSetting value="2" id="Add" />
+   </component>
+   <component name="ProjectViewState">
+@@ -94,11 +79,6 @@
+       <updated>1692693951110</updated>
+       <workItem from="1692693952364" duration="674000" />
+       <workItem from="1692695812509" duration="383000" />
+-      <workItem from="1692711027376" duration="97000" />
+-      <workItem from="1692711133716" duration="1000" />
+-      <workItem from="1692711223408" duration="233000" />
+-      <workItem from="1692711472084" duration="33000" />
+-      <workItem from="1692712799204" duration="2421000" />
+     </task>
+     <task id="LOCAL-00001" summary="Entity">
+       <created>1692694492175</created>
+@@ -107,60 +87,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1692694492175</updated>
+     </task>
+-    <task id="LOCAL-00002" summary="Push qilindi">
+-      <option name="closed" value="true" />
+-      <created>1692713666413</created>
+-      <option name="number" value="00002" />
+-      <option name="presentableId" value="LOCAL-00002" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1692713666413</updated>
+-    </task>
+-    <task id="LOCAL-00003" summary="Push qilindi">
+-      <option name="closed" value="true" />
+-      <created>1692713824107</created>
+-      <option name="number" value="00003" />
+-      <option name="presentableId" value="LOCAL-00003" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1692713824107</updated>
+-    </task>
+-    <task id="LOCAL-00004" summary="kerwoasdht f8o3i rfufiu34wqejf">
+-      <option name="closed" value="true" />
+-      <created>1692714490695</created>
+-      <option name="number" value="00004" />
+-      <option name="presentableId" value="LOCAL-00004" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1692714490695</updated>
+-    </task>
+-    <task id="LOCAL-00005" summary="Push10">
+-      <option name="closed" value="true" />
+-      <created>1692714768344</created>
+-      <option name="number" value="00005" />
+-      <option name="presentableId" value="LOCAL-00005" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1692714768344</updated>
+-    </task>
+-    <option name="localTasksCounter" value="6" />
++    <option name="localTasksCounter" value="2" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+     <option name="version" value="3" />
+   </component>
+-  <component name="Vcs.Log.Tabs.Properties">
+-    <option name="TAB_STATES">
+-      <map>
+-        <entry key="MAIN">
+-          <value>
+-            <State />
+-          </value>
+-        </entry>
+-      </map>
+-    </option>
+-  </component>
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value="Entity" />
+-    <MESSAGE value="Push qilindi" />
+-    <MESSAGE value="kerwoasdht f8o3i rfufiu34wqejf" />
+-    <MESSAGE value="Push10" />
+-    <option name="LAST_COMMIT_MESSAGE" value="Push10" />
++    <option name="LAST_COMMIT_MESSAGE" value="Entity" />
+   </component>
+ </project>
+\ No newline at end of file
