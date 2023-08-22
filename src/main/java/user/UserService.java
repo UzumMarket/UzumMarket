@@ -31,4 +31,22 @@ public class UserService {
     public static UserService getInstance() {
         return userService;
     }
+
+    public boolean isExist(String email) {
+        for (User user : userService.getAll()) {
+            if (user.getEmail().equals(email)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean checkLogin(String email, String password) {
+        for (User user : getAll()) {
+            if (user.getEmail().equalsIgnoreCase(email) && user.getPassword().equals(password)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
