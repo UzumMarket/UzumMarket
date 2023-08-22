@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1cce45e6-4b76-45e5-acc8-023eabb41a8b" name="Changes" comment="UIlar qoshildi!" />
+    <list default="true" id="1cce45e6-4b76-45e5-acc8-023eabb41a8b" name="Changes" comment="LogHandler added">
+      <change afterPath="$PROJECT_DIR$/logs.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/log/MyLogFormatter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/log/MyLogHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -60,6 +66,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/Aziza/Desktop/PDP/JAVA/Modul 4/Uzum__Market/src/main/java",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -67,6 +74,15 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Aziza\Desktop\PDP\JAVA\Modul 4\Uzum__Market\src\main\java" />
+      <recent name="C:\Users\Aziza\Desktop\PDP\JAVA\Modul 4\Uzum__Market\src\main\java\log" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Aziza\Desktop\PDP\JAVA\Modul 4\Uzum__Market" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -79,6 +95,7 @@
       <workItem from="1692695812509" duration="383000" />
       <workItem from="1692708575083" duration="297000" />
       <workItem from="1692720700144" duration="51000" />
+      <workItem from="1692720817167" duration="1047000" />
     </task>
     <task id="LOCAL-00001" summary="Entity">
       <created>1692694492175</created>
@@ -122,7 +139,14 @@
       <option name="project" value="LOCAL" />
       <updated>1692716533115</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="LogHandler added">
+      <created>1692720884599</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1692720884599</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -135,6 +159,7 @@
     <MESSAGE value="Changed Mail" />
     <MESSAGE value="Changed Mails" />
     <MESSAGE value="UIlar qoshildi!" />
-    <option name="LAST_COMMIT_MESSAGE" value="UIlar qoshildi!" />
+    <MESSAGE value="LogHandler added" />
+    <option name="LAST_COMMIT_MESSAGE" value="LogHandler added" />
   </component>
 </project>
