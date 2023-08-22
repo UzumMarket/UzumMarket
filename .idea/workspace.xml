@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1cce45e6-4b76-45e5-acc8-023eabb41a8b" name="Changes" comment="Changed Mail">
-      <change beforePath="$PROJECT_DIR$/src/main/java/mail/Gmail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mail/Gmail.java" afterDir="false" />
-    </list>
+    <list default="true" id="1cce45e6-4b76-45e5-acc8-023eabb41a8b" name="Changes" comment="Changed Mails" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -108,7 +106,14 @@
       <option name="project" value="LOCAL" />
       <updated>1692711500284</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Changed Mails">
+      <created>1692711613193</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1692711613193</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -119,6 +124,7 @@
     <MESSAGE value="SS" />
     <MESSAGE value="Mail" />
     <MESSAGE value="Changed Mail" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed Mail" />
+    <MESSAGE value="Changed Mails" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed Mails" />
   </component>
 </project>
