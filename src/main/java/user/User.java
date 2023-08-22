@@ -7,13 +7,14 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 import product.Product;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.UUID;
 
 @Data
 @NoArgsConstructor
 @ToString (callSuper = true)
-public class User extends BaseEntity<UUID> {
+public class User extends BaseEntity<UUID> implements Serializable {
     private String name;
     private String lastname;
     private String password;

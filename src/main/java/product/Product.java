@@ -6,12 +6,13 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import java.io.Serializable;
 import java.util.UUID;
 
 @NoArgsConstructor
 @Data
 @ToString(callSuper = true)
-public class Product extends BaseEntity<UUID> {
+public class Product extends BaseEntity<UUID> implements Serializable {
     private String model;
     private String name;
     private UUID categories_id;
