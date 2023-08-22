@@ -12,9 +12,6 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExportToHTMLSettings">
-    <option name="OUTPUT_DIRECTORY" value="$PROJECT_DIR$/../UzumMarket\exportToHTML" />
-  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -44,19 +41,6 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;
-  }
-}</component>
-  <component name="GithubPullRequestsUISettings">
-    <option name="selectedUrlAndAccountId">
-      <UrlAndAccount>
-        <option name="accountId" value="8746db67-afca-4259-9e7d-697cfc94ce29" />
-        <option name="url" value="https://github.com/UzumMarket/UzumMarket.git" />
-      </UrlAndAccount>
-    </option>
-  </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -65,7 +49,7 @@
     </option>
   </component>
   <component name="ProjectId" id="2UKgzpGoedq9mJLRQGwp67N4ebW" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+  <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -94,11 +78,7 @@
       <updated>1692693951110</updated>
       <workItem from="1692693952364" duration="674000" />
       <workItem from="1692695812509" duration="383000" />
-      <workItem from="1692711027376" duration="97000" />
-      <workItem from="1692711133716" duration="1000" />
-      <workItem from="1692711223408" duration="233000" />
-      <workItem from="1692711472084" duration="33000" />
-      <workItem from="1692712799204" duration="2421000" />
+      <workItem from="1692708575083" duration="297000" />
     </task>
     <task id="LOCAL-00001" summary="Entity">
       <created>1692694492175</created>
@@ -107,60 +87,22 @@
       <option name="project" value="LOCAL" />
       <updated>1692694492175</updated>
     </task>
-    <task id="LOCAL-00002" summary="Push qilindi">
-      <option name="closed" value="true" />
-      <created>1692713666413</created>
+    <task id="LOCAL-00002" summary="SS">
+      <created>1692708872236</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1692713666413</updated>
+      <updated>1692708872236</updated>
     </task>
-    <task id="LOCAL-00003" summary="Push qilindi">
-      <option name="closed" value="true" />
-      <created>1692713824107</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1692713824107</updated>
-    </task>
-    <task id="LOCAL-00004" summary="kerwoasdht f8o3i rfufiu34wqejf">
-      <option name="closed" value="true" />
-      <created>1692714490695</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1692714490695</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Push10">
-      <option name="closed" value="true" />
-      <created>1692714768344</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1692714768344</updated>
-    </task>
-    <option name="localTasksCounter" value="6" />
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Entity" />
-    <MESSAGE value="Push qilindi" />
-    <MESSAGE value="kerwoasdht f8o3i rfufiu34wqejf" />
-    <MESSAGE value="Push10" />
-    <option name="LAST_COMMIT_MESSAGE" value="Push10" />
+    <MESSAGE value="SS" />
+    <option name="LAST_COMMIT_MESSAGE" value="SS" />
   </component>
 </project>
