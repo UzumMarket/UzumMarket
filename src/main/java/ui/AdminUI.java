@@ -103,6 +103,40 @@ public class AdminUI {
     }
 
     private void viewProductsList() {
+        boolean isExit = false;
+
+        while (!isExit) {
+            if (categoriesService.getAll().size() > 0) {
+                int count = 0;
+                for (Categories categories : categoriesService.getAll()) {
+                    count++;
+                    System.out.println(count + " - " + categories.getName() + " - " + productService.findByCategoryId(categories.getId()).size());
+                }
+                System.out.println("0. Chiqish");
+
+                System.out.print(">> ");
+
+                int key = scannerInt.nextInt();
+
+                if (key == 0) {
+                    isExit = true;
+                } else if (key > 0 && categoriesService.getAll().size() >= key) {
+                    if (productService.findByCategoryId(categoriesService.getAll().get(key - 1).getId()).size() > 0) {
+                        for (Product product : productService.findByCategoryId(categoriesService.getAll().get(key - 1).getId())) {
+                            System.out.println(product.getName() + product.getModel() + product.getPrice() + " so'm");
+                        }
+                    }else{
+                        System.out.println("Mahsulotlar topilmadi!");
+                    }
+                } else {
+                    System.out.println("Noto'g'ri buyrug' kiritingiz!");
+                }
+
+            } else {
+                isExit = true;
+                System.out.println("Catogorylar topilmadi!");
+            }
+        }
     }
 
     private void addProducts() {
