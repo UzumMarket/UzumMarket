@@ -108,5 +108,12 @@ public class Controller implements UI {
             System.out.println("Email topilmadi. Qaytadan urinib ko'ring ↻");
         }
 
+        //-Maxsulotlarni kiritish
+        //-Maxsulotlar ro`yxatini ko`rish
+        //-Admin qo`shish
+        //-Admin o`chirish
+        //-Mahsulot categoriyalariga o`zgartirish kiritish
+        //-Mahsulotlarga o`zgartirish kirirtish
+
     }
 }
