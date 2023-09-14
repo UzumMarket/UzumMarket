@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1cce45e6-4b76-45e5-acc8-023eabb41a8b" name="Changes" comment="Uzgartildi" />
+    <list default="true" id="1cce45e6-4b76-45e5-acc8-023eabb41a8b" name="Changes" comment="UIlar qoshildi!">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_22_08_2023_18_34__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_22_08_2023_18_34__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_22_08_2023_18_40__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_22_08_2023_18_40__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_22_08_2023_18_53__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_22_08_2023_18_53__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_22_08_2023_20_29__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_22_08_2023_20_29__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ui/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/Controller.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -47,7 +56,7 @@
     </option>
   </component>
   <component name="ProjectId" id="2UKgzpGoedq9mJLRQGwp67N4ebW" />
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -59,6 +68,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Odilxon&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -77,8 +87,6 @@
       <workItem from="1692693952364" duration="674000" />
       <workItem from="1692695812509" duration="383000" />
       <workItem from="1692708575083" duration="297000" />
-      <workItem from="1694677379585" duration="375000" />
-      <workItem from="1694677768914" duration="1294000" />
     </task>
     <task id="LOCAL-00001" summary="Entity">
       <created>1692694492175</created>
@@ -122,21 +130,7 @@
       <option name="project" value="LOCAL" />
       <updated>1692716533115</updated>
     </task>
-    <task id="LOCAL-00007" summary="Mainga controller qoshildi!">
-      <created>1694678232426</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1694678232426</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Uzgartildi">
-      <created>1694678846450</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1694678846450</updated>
-    </task>
-    <option name="localTasksCounter" value="9" />
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -149,8 +143,6 @@
     <MESSAGE value="Changed Mail" />
     <MESSAGE value="Changed Mails" />
     <MESSAGE value="UIlar qoshildi!" />
-    <MESSAGE value="Mainga controller qoshildi!" />
-    <MESSAGE value="Uzgartildi" />
-    <option name="LAST_COMMIT_MESSAGE" value="Uzgartildi" />
+    <option name="LAST_COMMIT_MESSAGE" value="UIlar qoshildi!" />
   </component>
 </project>
