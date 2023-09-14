@@ -1,17 +1,17 @@
 package ui;
 
-import mail.Gmail;
 import user.User;
 import user.UserService;
 import user.UserType;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.UUID;
 
 public class Controller implements UI {
 
     private final UserService userService = UserService.getInstance();
-    private final Gmail gmail = Gmail.getInstance();
 
     private final Scanner scannerInt = new Scanner(System.in);
     private final Scanner scannerStr = new Scanner(System.in);
@@ -43,7 +43,38 @@ public class Controller implements UI {
     }
 
     private void createAccount() {
-        System.out.println("Create Account");
+        System.out.print("Ismingni kirit: ");
+        String name = scannerStr.nextLine();
+
+        System.out.print("Familyangni kirit: ");
+        String surname = scannerStr.nextLine();
+
+        System.out.print("Yoshingni kiriti: ");
+        int age = scannerInt.nextInt();
+
+        System.out.print("Emailingni kiriti: ");
+        String email = scannerStr.nextLine();
+
+        System.out.print("Parolingni kirit: ");
+        String password = scannerStr.nextLine();
+
+        System.out.print("Parolni-Qayta kirit: ");
+        String repeatPassword = scannerStr.nextLine();
+
+        System.out.print("Telefon raqamni kirit: ");
+        String number = scannerStr.nextLine();
+
+        if (password.equals(repeatPassword)) {
+            if (userService.isExist(email)) {
+                System.out.println("Emaildan foydalanilingan!");
+            } else {
+                User user = new User(UUID.randomUUID(), name, surname, password, email, number, age, new ArrayList<>(), 0, UserType.USER, new ArrayList<>());
+                userService.add(user);
+                new UserUI().start(user);
+            }
+        } else {
+            System.out.println("Parol mos kelmadi!");
+        }
     }
 
     private void login() {
@@ -73,5 +104,4 @@ public class Controller implements UI {
             }
         }
     }
-
 }
