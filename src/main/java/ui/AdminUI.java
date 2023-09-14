@@ -92,6 +92,7 @@ public class AdminUI {
 
         categories.setName(categoryName);
         categories.setId(UUID.randomUUID());
+        categoriesService.add(categories);
     }
 
     private void deleteAdmin() {
@@ -171,6 +172,7 @@ public class AdminUI {
                 product.setCategories_id(categoriesService.getAll().get(command).getId());
 
                 product.setId(UUID.randomUUID());
+                productService.add(product);
             } else {
                 System.out.println("Noto`g`ri buyruq kiritdingiz!");
             }
