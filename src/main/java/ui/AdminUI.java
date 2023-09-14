@@ -67,19 +67,25 @@ public class AdminUI {
                 int count2 = 0;
                 for (Product product : productService.getAll()) {
                     System.out.println(count2 + 1 + " " + product.getName());
+                    count2++;
                 }
                 int command2 = scannerInt.nextInt();
-                if(command2>0 && command2<productService.getAll().size()){
-                    System.out.println("1. Modelini o`zgartirish: ");
+                if (command2 > 0 && command2 < productService.getAll().size()) {
+                    System.out.println("""
+                            1. Nomini o`zgartirish
+                            2. Modelini o`zgartirish
+                            3. Categoriyasini o`zgartirish
+                            4. Narxini o`zgartirish
+                            5. Izohini """);
 
                 }
 
-            }else{
+            } else {
                 System.out.println("Noto`g`ri buyruq kiritdingiz!");
             }
 
 
-        }else{
+        } else {
             System.out.println("categorylar topilmadi!");
         }
 
@@ -102,6 +108,8 @@ public class AdminUI {
     private void addAdmin() {
 
     }
+
+
 
     private void viewProductsList() {
         boolean isExit = false;
@@ -126,7 +134,7 @@ public class AdminUI {
                         for (Product product : productService.findByCategoryId(categoriesService.getAll().get(key - 1).getId())) {
                             System.out.println(product.getName() + product.getModel() + product.getPrice() + " so'm");
                         }
-                    }else{
+                    } else {
                         System.out.println("Mahsulotlar topilmadi!");
                     }
                 } else {
@@ -149,16 +157,21 @@ public class AdminUI {
 
             for (Categories categories : categoriesService.getAll()) {
                 System.out.println(count + 1 + ". " + categories.getName());
-
+                count++;
             }
             int command = scannerInt.nextInt();
 
 
             if (command > 0 && command <= categoriesService.getAll().size()) {
                 Product product = new Product();
+
                 System.out.print("Mahsulot nomini kirirting: ");
                 String productName = scannerStr.nextLine();
                 product.setName(productName);
+
+                System.out.println("Mahsulot modelini kirirting: ");
+                String productModel = scannerStr.nextLine();
+                product.setModel(productModel);
 
                 System.out.println("Mahsulot narxini kiriting: ");
                 Double productPrice = scannerInt.nextDouble();
@@ -169,10 +182,11 @@ public class AdminUI {
                 product.setDescription(productDescription);
 
                 product.setStatus(Status.START);
-                product.setCategories_id(categoriesService.getAll().get(command).getId());
+                product.setCategories_id(categoriesService.getAll().get(command - 1).getId());
 
                 product.setId(UUID.randomUUID());
                 productService.add(product);
+                System.out.println("Mahsulot muvaffaqqiyatli kiritildi!");
             } else {
                 System.out.println("Noto`g`ri buyruq kiritdingiz!");
             }
