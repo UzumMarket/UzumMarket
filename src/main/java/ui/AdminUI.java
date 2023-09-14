@@ -69,17 +69,17 @@ public class AdminUI {
                     System.out.println(count2 + 1 + " " + product.getName());
                 }
                 int command2 = scannerInt.nextInt();
-                if(command2>0 && command2<productService.getAll().size()){
+                if (command2 > 0 && command2 < productService.getAll().size()) {
                     System.out.println("1. Modelini o`zgartirish: ");
 
                 }
 
-            }else{
+            } else {
                 System.out.println("Noto`g`ri buyruq kiritdingiz!");
             }
 
 
-        }else{
+        } else {
             System.out.println("categorylar topilmadi!");
         }
 
@@ -124,9 +124,9 @@ public class AdminUI {
                 } else if (key > 0 && categoriesService.getAll().size() >= key) {
                     if (productService.findByCategoryId(categoriesService.getAll().get(key - 1).getId()).size() > 0) {
                         for (Product product : productService.findByCategoryId(categoriesService.getAll().get(key - 1).getId())) {
-                            System.out.println(product.getName() + product.getModel() + product.getPrice() + " so'm");
+                            System.out.println(product.getName() + " - " + product.getModel() + " - " + product.getPrice() + " so'm");
                         }
-                    }else{
+                    } else {
                         System.out.println("Mahsulotlar topilmadi!");
                     }
                 } else {
