@@ -92,7 +92,6 @@ public class AdminUI {
 
         categories.setName(categoryName);
         categories.setId(UUID.randomUUID());
-
     }
 
     private void deleteAdmin() {
