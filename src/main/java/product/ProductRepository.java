@@ -13,7 +13,7 @@ public class ProductRepository extends BaseRepository<UUID, Product> {
     @Override
     protected String getFileName() {
 
-        return "src/resources/products.txt";
+        return "src/main/resources/products.txt";
     }
 
     public static ProductRepository getInstance()

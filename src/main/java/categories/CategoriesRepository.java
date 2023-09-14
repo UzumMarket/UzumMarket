@@ -12,7 +12,7 @@ public class CategoriesRepository extends BaseRepository<UUID, Categories> {
 
     @Override
     protected String getFileName() {
-        return "src/resources/categories.txt";
+        return "src/main/resources/categories.txt";
     }
 
     public static CategoriesRepository getInstance() {
