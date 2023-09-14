@@ -35,7 +35,7 @@ public class UserService {
 
     public boolean isExist(String email) {
         for (User user : userService.getAll()) {
-            if (user.getEmail().equals(email)) {
+            if (user.getEmail().equalsIgnoreCase(email)) {
                 return true;
             }
         }
