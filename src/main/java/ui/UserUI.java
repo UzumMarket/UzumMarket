@@ -74,7 +74,19 @@ public class UserUI {
 
 
     }
+    private void savatim() {
 
+    }
+
+    private void xaridQilganMahsulotlarimTarixi() {
+    }
+
+    private void mablag() {
+
+    }
+
+    private void sozlamalar() {
+    }
     private void telefon() {
         System.out.println("Maxsulot modellini tanglang");
         boolean isExited = false;
@@ -120,19 +132,5 @@ public class UserUI {
                 default -> System.out.println("NoTogri buruq kiritdingiz");
             }
         }
-    }
-
-    private void savatim() {
-
-    }
-
-    private void xaridQilganMahsulotlarimTarixi() {
-    }
-
-    private void mablag() {
-
-    }
-
-    private void sozlamalar() {
     }
 }
