@@ -20,6 +20,14 @@ public abstract class BaseRepository<ID, ENTITY extends BaseEntity<ID>> implemen
     }
 
     @Override
+    public void update(ENTITY entity) {
+        List<ENTITY> entities = readToFile();
+        entities.removeIf(entity1 -> entity1.getId().equals(entity.getId()));
+        entities.add(entity);
+        writeToFile(entities);
+    }
+
+    @Override
     public void delete(ID id) {
         List<ENTITY> entities = readToFile();
         entities.removeIf(entity -> entity.getId().equals(id));
