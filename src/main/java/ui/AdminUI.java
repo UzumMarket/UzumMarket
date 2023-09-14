@@ -81,7 +81,6 @@ public class AdminUI {
                 System.out.print(">> ");
 
                 int key = scannerInt.nextInt();
-                categoriesService.
 
                 if (key == 0) {
                     isExit = true;
