@@ -1,10 +1,11 @@
 package ui;
 
-import categories.CategoriesService;
 import mail.Gmail;
-import product.ProductService;
+import user.User;
 import user.UserService;
+import user.UserType;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class Controller implements UI {
@@ -46,6 +47,31 @@ public class Controller implements UI {
     }
 
     private void login() {
-        System.out.println("Login");
+        System.out.print("Emailingizni kiriting ⇨ ");
+        String noTrimEmail = scannerStr.nextLine();
+        String email = noTrimEmail.trim();
+
+        System.out.println("Passwordni kiriting ⇨ ");
+        String password = scannerStr.nextLine();
+
+        if (userService.isExist(email)) {
+            List<User> all = userService.getAll();
+
+            for (User user : all) {
+                if (user.getEmail().equalsIgnoreCase(email)
+                        && user.getPassword().equals(password)) {
+                    UserType userType = user.getUserType();
+
+                    if (userType == UserType.ADMIN) {
+                        AdminUI adminUI = new AdminUI();
+                        adminUI.start(user);
+                    } else {
+                        UserUI userUI = new UserUI();
+                        userUI.start(user);
+                    }
+                }
+            }
+        }
     }
+
 }
