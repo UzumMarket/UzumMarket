@@ -82,7 +82,7 @@ public class Controller implements UI {
         String noTrimEmail = scannerStr.nextLine();
         String email = noTrimEmail.trim();
 
-        System.out.println("Passwordni kiriting ⇨ ");
+        System.out.print("Passwordni kiriting ⇨ ");
         String password = scannerStr.nextLine();
 
         if (userService.isExist(email)) {
