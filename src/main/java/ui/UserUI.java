@@ -5,6 +5,7 @@ import categories.CategoriesService;
 import product.Product;
 import product.ProductService;
 import user.User;
+import user.UserRepository;
 import user.UserService;
 
 import java.util.List;
@@ -15,14 +16,14 @@ public class UserUI {
     private final UserService userService = UserService.getInstance();
     private final CategoriesService categoriesService = CategoriesService.getInstance();
     private final ProductService productService = ProductService.getInstance();
+    private final UserRepository userRepository = UserRepository.getInstance();
     Scanner scannerInt = new Scanner(System.in);
     Scanner scannerStr = new Scanner(System.in);
 
     public void start(User user) {
         boolean isExited = false;
         while (!isExited) {
-            System.out.print("""
-                                        
+            System.out.print("""         
                     1 ⇨ Mahsulot Xarid Qilish
                     2 ⇨ Savatim
                     3 ⇨ Xarid Qilgan Mahsulotlarim Tarixi
@@ -54,6 +55,7 @@ public class UserUI {
             count++;
             System.out.println(count + ". " + categories.getName());
         }
+
         boolean isExited = false;
         while (!isExited) {
             System.out.print("""   
@@ -66,16 +68,13 @@ public class UserUI {
                     0 ⇨ Chiqish 
                     >>\s""");
 
-
             int command = scannerInt.nextInt();
             switch (command) {
                 case 1 -> telefon();
                 case 0 -> isExited = true;
-                default -> System.out.println("Notogri buruq kiritdingiz");
+                default -> System.out.println("Notog'ri buyrug' kiritdingiz");
             }
         }
-
-
     }
 
     private void savatim(UUID uuid) {
@@ -91,26 +90,30 @@ public class UserUI {
             }
             System.out.println("Jami summa: " + allPrice);
         } else {
-            System.out.println("Sizda birorta ham product yo'q" + "\n");
+            System.out.println("Sizda birorta ham product yo'q❗" + "\n");
         }
     }
 
     private void xaridQilganMahsulotlarimTarixi(User user) {
-        for (Product product : user.getBoughtProductsHistory()) {
-            System.out.println("Mahsulot nomi ⇨ " + product.getName());
-            System.out.println("Mahsulot tarifi ⇨ " + product.getDescription());
-            System.out.println("Mahsulot modeli ⇨ " + product.getModel());
-            System.out.println("Mahsulot narxi ⇨ " + product.getPrice());
+        if (user.getBoughtProductsHistory().size() > 0) {
+            for (Product product : user.getBoughtProductsHistory()) {
+                System.out.println("Mahsulot nomi ⇨ " + product.getName());
+                System.out.println("Mahsulot tarifi ⇨ " + product.getDescription());
+                System.out.println("Mahsulot modeli ⇨ " + product.getModel());
+                System.out.println("Mahsulot narxi ⇨ " + product.getPrice());
+            }
+        } else {
+            System.out.println("Siz biror martta ham mahsulot harid qilmagansiz❗" + "\n");
         }
     }
 
     private void mablag(User user) {
         boolean isExited = false;
         while (!isExited) {
-            System.out.println("Sizning Idingiz ⇨ " + user.getId());
-            System.out.println("Sizning Ismingiz ⇨ " + user.getName());
-            System.out.println("Sizning Familiyangiz ⇨ " + user.getLastname());
-            System.out.println("Sizning Yoshingiz ⇨ " + user.getAge());
+            System.out.println("Sizning idingiz ⇨ " + user.getId());
+            System.out.println("Sizning ismingiz ⇨ " + user.getName());
+            System.out.println("Sizning familiyangiz ⇨ " + user.getLastname());
+            System.out.println("Sizning yoshingiz ⇨ " + user.getAge());
 
             String password = user.getPassword();
             int length = password.length();
@@ -118,14 +121,12 @@ public class UserUI {
             for (int i = 0; i < length; i++) {
                 pas.append("*");
             }
-            System.out.println("Sizning Parolingiz ⇨ " + pas);
-            System.out.println("Sizning balandingiz ⇨ " + user.getBalance() + "\n");
-
+            System.out.println("Sizning parolingiz ⇨ " + pas);
+            System.out.println("Sizning balansingiz ⇨ " + user.getBalance() + "\n");
             System.out.println("1.Balans qo'shish");
             System.out.println("0.Chiqish");
 
             int key = scannerInt.nextInt();
-
             switch (key) {
                 case 1 -> addBalance(user);
                 case 0 -> isExited = true;
@@ -136,11 +137,12 @@ public class UserUI {
     }
 
     private void addBalance(User user) {
-        System.out.println("Qo'shmoqchi bo'lgan mablag'ni kiriting ⇨ ");
+        System.out.print("Qo'shmoqchi bo'lgan mablag'ni kiriting ⇨ ");
         double balance = scannerInt.nextDouble();
         double userBalance = user.getBalance();
-
         user.setBalance(userBalance + balance);
+
+        userRepository.update(user);
     }
 
     private void sozlamalar() {
