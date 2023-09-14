@@ -17,5 +17,12 @@ public class Controller implements UI {
         // User Main Menu ==
         // Admin Menu ==
 
+        //-Maxsulotlarni kiritish
+        //-Maxsulotlar ro`yxatini ko`rish
+        //-Admin qo`shish
+        //-Admin o`chirish
+        //-Mahsulot categoriyalariga o`zgartirish kiritish
+        //-Mahsulotlarga o`zgartirish kirirtish
+
     }
 }
