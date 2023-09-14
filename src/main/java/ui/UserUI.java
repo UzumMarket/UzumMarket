@@ -1,8 +1,6 @@
 package ui;
 
-import categories.Categories;
 import categories.CategoriesService;
-import mail.Gmail;
 import product.ProductService;
 import user.User;
 import user.UserService;

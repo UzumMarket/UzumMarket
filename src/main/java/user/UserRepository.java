@@ -12,7 +12,7 @@ public class UserRepository extends BaseRepository<UUID, User> {
 
     @Override
     protected String getFileName() {
-        return "src/resources/users.txt";
+        return "src/main/resources/users.txt";
     }
 
     public static UserRepository getInstance() {
