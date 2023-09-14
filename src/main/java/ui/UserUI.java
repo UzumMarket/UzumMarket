@@ -37,8 +37,8 @@ public class UserUI {
             switch (command) {
                 case 1 -> mahsulotXaridQilish();
                 case 2 -> savatim(user.getId());
-                case 3 -> xaridQilganMahsulotlarimTarixi();
-                case 4 -> mablag();
+                case 3 -> xaridQilganMahsulotlarimTarixi(user);
+                case 4 -> mablag(user);
                 case 5 -> sozlamalar();
                 case 0 -> isExited = true;
                 default -> System.out.println("NoTogri buruq kiritdingiz");
@@ -52,12 +52,11 @@ public class UserUI {
         int count = 0;
         for (Categories categories : categoriesService.getAll()) {
             count++;
-            System.out.println(count+". "+categories.getName());
+            System.out.println(count + ". " + categories.getName());
         }
         boolean isExited = false;
         while (!isExited) {
-            System.out.print("""
-                                        
+            System.out.print("""   
                     1 ⇨ Telefon
                     2 ⇨ Noutbook
                     3 ⇨ Televisor
@@ -96,11 +95,52 @@ public class UserUI {
         }
     }
 
-    private void xaridQilganMahsulotlarimTarixi() {
+    private void xaridQilganMahsulotlarimTarixi(User user) {
+        for (Product product : user.getBoughtProductsHistory()) {
+            System.out.println("Mahsulot nomi ⇨ " + product.getName());
+            System.out.println("Mahsulot tarifi ⇨ " + product.getDescription());
+            System.out.println("Mahsulot modeli ⇨ " + product.getModel());
+            System.out.println("Mahsulot narxi ⇨ " + product.getPrice());
+        }
     }
 
-    private void mablag() {
+    private void mablag(User user) {
+        boolean isExited = false;
+        while (!isExited) {
+            System.out.println("Sizning Idingiz ⇨ " + user.getId());
+            System.out.println("Sizning Ismingiz ⇨ " + user.getName());
+            System.out.println("Sizning Familiyangiz ⇨ " + user.getLastname());
+            System.out.println("Sizning Yoshingiz ⇨ " + user.getAge());
 
+            String password = user.getPassword();
+            int length = password.length();
+            StringBuilder pas = new StringBuilder();
+            for (int i = 0; i < length; i++) {
+                pas.append("*");
+            }
+            System.out.println("Sizning Parolingiz ⇨ " + pas);
+            System.out.println("Sizning balandingiz ⇨ " + user.getBalance() + "\n");
+
+            System.out.println("1.Balans qo'shish");
+            System.out.println("0.Chiqish");
+
+            int key = scannerInt.nextInt();
+
+            switch (key) {
+                case 1 -> addBalance(user);
+                case 0 -> isExited = true;
+                default -> System.out.println("Notog'ri buyrug' kiritdingiz❗" + "\n");
+            }
+
+        }
+    }
+
+    private void addBalance(User user) {
+        System.out.println("Qo'shmoqchi bo'lgan mablag'ni kiriting ⇨ ");
+        double balance = scannerInt.nextDouble();
+        double userBalance = user.getBalance();
+
+        user.setBalance(userBalance + balance);
     }
 
     private void sozlamalar() {
@@ -120,10 +160,8 @@ public class UserUI {
                     5 ⇨ Huawei | 77 | 2 000 000 so’m
                     6. Samsung | S23 | 20 000 000 so’m
                                         
-                    0 ⇨ Chiqish 
+                    0 ⇨ Chiqish
                     >>\s""");
-
-
             int command = scannerInt.nextInt();
             switch (command) {
                 case 1 -> samsung_A32();
@@ -136,8 +174,7 @@ public class UserUI {
     private void samsung_A32() {
         boolean isExited = false;
         while (!isExited) {
-            System.out.print("""
-                                        
+            System.out.print("""                 
                     1 ⇨ Savatga Qo’shish
                     2 ⇨ Sotib Olish
                     0 ⇨ Chiqish
@@ -147,8 +184,8 @@ public class UserUI {
 
             int command = scannerInt.nextInt();
             switch (command) {
-                case 1 ->  productService.add(new Product());
-                case 0 ->  isExited = true;
+                case 1 -> productService.add(new Product());
+                case 0 -> isExited = true;
                 default -> System.out.println("NoTogri buruq kiritdingiz");
             }
         }

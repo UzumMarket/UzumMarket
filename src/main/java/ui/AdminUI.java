@@ -52,7 +52,6 @@ public class AdminUI {
                 default -> System.out.println("Noto`g`ri buyruq kiritdingiz!");
             }
         }
-
     }
 
     private void updateProducts() {
@@ -81,20 +80,14 @@ public class AdminUI {
                             2. Modelini o`zgartirish
                             3. Categoriyasini o`zgartirish
                             4. Narxini o`zgartirish
-                            5. Izohini """);
-
-
+                            5. Izohini""");
                 }
-
             } else {
                 System.out.println("Noto`g`ri buyruq kiritdingiz!");
             }
-
-
         } else {
             System.out.println("categorylar topilmadi!");
         }
-
     }
 
     private void addCategories() {
