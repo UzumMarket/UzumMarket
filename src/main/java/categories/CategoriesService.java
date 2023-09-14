@@ -13,6 +13,7 @@ public class CategoriesService {
     private static final CategoriesService categoriesService = new CategoriesService();
 
     public void add(Categories entity) {
+
         categoriesRepository.add(entity);
     }
 

@@ -51,7 +51,8 @@ public class UserUI {
 
         int count = 0;
         for (Categories categories : categoriesService.getAll()) {
-            System.out.println(count + 1 + ". " + categories.getName());
+            count++;
+            System.out.println(count+". "+categories.getName());
         }
         boolean isExited = false;
         while (!isExited) {
@@ -139,15 +140,15 @@ public class UserUI {
                                         
                     1 ⇨ Savatga Qo’shish
                     2 ⇨ Sotib Olish
-                              
-                    0 ⇨ Chiqish 
+                    0 ⇨ Chiqish
+
                     >>\s""");
 
 
             int command = scannerInt.nextInt();
             switch (command) {
-                case 1 -> samsung_A32();
-                case 0 -> isExited = true;
+                case 1 ->  productService.add(new Product());
+                case 0 ->  isExited = true;
                 default -> System.out.println("NoTogri buruq kiritdingiz");
             }
         }
