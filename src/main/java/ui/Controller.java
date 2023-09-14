@@ -37,15 +37,15 @@ public class Controller implements UI {
                 case 0 -> isExit = true;
                 default -> System.out.println("Noto'g'ri buyruq kiritildi!");
             }
-
         }
 
     }
 
     private void createAccount() {
+        System.out.println("Create Account");
     }
 
     private void login() {
-
+        System.out.println("Login");
     }
 }
