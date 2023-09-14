@@ -4,11 +4,13 @@ import categories.Categories;
 import categories.CategoriesService;
 import jdk.jfr.Category;
 import product.Product;
+import product.ProductRepository;
 import product.ProductService;
 import product.Status;
 import user.User;
 import user.UserService;
 
+import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 import java.util.UUID;
@@ -21,6 +23,7 @@ public class AdminUI {
     private final UserService userService = UserService.getInstance();
     private final CategoriesService categoriesService = CategoriesService.getInstance();
     private final ProductService productService = ProductService.getInstance();
+    private final ProductRepository productRepository = ProductRepository.getInstance();
 
     public void start(User user) {
 
@@ -53,45 +56,106 @@ public class AdminUI {
     }
 
     private void updateProducts() {
+
+
         if (categoriesService.getAll().size() > 0) {
             System.out.println("Iltimos, mahsulot categoriyalaridan birini tanlang: ");
             int count1 = 0;
             for (Categories categories : categoriesService.getAll()) {
                 System.out.println(count1 + 1 + " " + categories.getName());
+                count1++;
             }
             int command1 = scannerInt.nextInt();
+
 
             if (command1 > 0 && command1 <= categoriesService.getAll().size()) {
 
                 System.out.println("Iltimos, o`zgartirish kiritmoqchi bo`lgan mahsulotizni tanlang: ");
                 int count2 = 0;
-                for (Product product : productService.getAll()) {
-                    System.out.println(count2 + 1 + " " + product.getName());
+                List<Product> byCategoryId = productService.findByCategoryId(categoriesService.getAll().get(command1 - 1).getId());
+                for (Product product : byCategoryId) {
+                    System.out.println(count2 + 1 + " Nomi: " + product.getName() + "  Modeli: " + product.getModel() + "  Narxi: " + product.getPrice() + "  Izohi: " + product.getDescription());
                     count2++;
                 }
                 int command2 = scannerInt.nextInt();
-                if (command2 > 0 && command2 < productService.getAll().size()) {                
-                  System.out.println("1. Modelini o`zgartirish: ");
+                if (command2 > 0 && command2 <= byCategoryId.size()) {
 
-                    System.out.println("""
-                            1. Nomini o`zgartirish
-                            2. Modelini o`zgartirish
-                            3. Categoriyasini o`zgartirish
-                            4. Narxini o`zgartirish
-                            5. Izohini """);
+                    boolean isExited2 = false;
 
+                    while (!isExited2) {
+                        System.out.println("""
+                                1. Nomini o`zgartirish
+                                2. Modelini o`zgartirish
+                                3. Categoriyasini o`zgartirish
+                                4. Narxini o`zgartirish
+                                5. Izohini o`zgartirish
+                                 
+                                0. Chiqish>>""");
+                        int command3 = scannerInt.nextInt();
 
+                        switch (command3) {
+                            case 1 -> {
+                                System.out.print("Yangi nomni kiriting: ");
+                                String newName = scannerStr.nextLine();
+                                Product product = byCategoryId.get(command2 - 1);
+                                product.setName(newName);
+                                productRepository.update(product);
+
+                                System.out.println("O`zgartirish amalga oshirildi!");
+                            }
+                            case 2 -> {
+                                System.out.print("Yangi modelni kirirting: ");
+                                String newModel = scannerStr.nextLine();
+                                Product product = byCategoryId.get(command2 - 1);
+                                product.setModel(newModel);
+                                productRepository.update(product);
+                                System.out.println("O`zgartirish amalga oshirildi!");
+                            }
+                            case 3 -> {
+                                System.out.println("Qaysi categoriyaga o`zgartirmoqchisiz: ");
+                                int count3 = 0;
+                                for (Categories categories : categoriesService.getAll()) {
+                                    System.out.println(count3 + 1 + " " + categories.getName());
+                                    count3++;
+                                }
+                                int command4 = scannerInt.nextInt();
+
+                                if (command4 > 0 && command4 <= categoriesService.getAll().size()) {
+                                    Product product = byCategoryId.get(command2 - 1);
+                                    product.setCategories_id(categoriesService.getAll().get(command4 - 1).getId());
+                                    productRepository.update(product);
+                                    System.out.println("O`zgartirish amalga oshirildi!");
+                                } else {
+                                    System.out.println("Noto`g`ri buyruq kiritildi!");
+                                }
+                            }
+                            case 4 -> {
+                                System.out.print("Yangi narxni kiriting: ");
+                                Double newPrice = scannerInt.nextDouble();
+                                Product product = byCategoryId.get(command2 - 1);
+                                product.setPrice(newPrice);
+                                productRepository.update(product);
+                                System.out.println("O`zgartirish amalga oshirildi!");
+                            }
+                            case 5 -> {
+                                System.out.println("Yangi izohni kiriting: ");
+                                String newDescription = scannerStr.nextLine();
+                                Product product = byCategoryId.get(command2 - 1);
+                                product.setDescription(newDescription);
+                                productRepository.update(product);
+                                System.out.println("O`zgartirish amalga oshirildi!");
+                            }
+                            case 0 -> isExited2 = true;
+                            default -> System.out.println("Noto`g`ri buyruq kiritdingiz!");
+                        }
+                    }
                 }
-
             } else {
                 System.out.println("Noto`g`ri buyruq kiritdingiz!");
             }
-
-
         } else {
             System.out.println("categorylar topilmadi!");
         }
-
     }
 
     private void addCategories() {
@@ -111,7 +175,6 @@ public class AdminUI {
     private void addAdmin() {
 
     }
-
 
 
     private void viewProductsList() {
