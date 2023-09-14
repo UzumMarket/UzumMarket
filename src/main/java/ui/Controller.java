@@ -116,4 +116,5 @@ public class Controller implements UI {
         //-Mahsulotlarga o`zgartirish kirirtish
 
     }
+
 }

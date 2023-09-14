@@ -12,10 +12,12 @@ public class ProductRepository extends BaseRepository<UUID, Product> {
 
     @Override
     protected String getFileName() {
+
         return "src/resources/products.txt";
     }
 
-    public static ProductRepository getInstance() {
+    public static ProductRepository getInstance()
+    {
         return productRepository;
     }
 
