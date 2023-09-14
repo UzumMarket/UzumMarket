@@ -12,6 +12,10 @@ public class Controller implements UI {
 
     @Override
     public void start() {
+        // Regist
+        // Login
+        // User Main Menu ==
+        // Admin Menu ==
 
     }
 }
