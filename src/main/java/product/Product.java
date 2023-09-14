@@ -1,14 +1,12 @@
 package product;
 
 import common.BaseEntity;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import java.io.Serializable;
 import java.util.UUID;
 
+@EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @Data
 @ToString(callSuper = true)

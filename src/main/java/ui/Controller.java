@@ -102,6 +102,7 @@ public class Controller implements UI {
                     }
                 } else {
                     System.out.println("Email yoki password xato❗");
+                    break;
                 }
             }
         } else {
