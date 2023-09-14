@@ -68,7 +68,7 @@ public class UserUI {
             switch (command) {
                 case 1 -> telefon();
                 case 0 -> isExited = true;
-                default -> System.out.println("NoTogri buruq kiritdingiz");
+                default -> System.out.println("Notogri buruq kiritdingiz");
             }
         }
 
@@ -86,6 +86,7 @@ public class UserUI {
     }
 
     private void sozlamalar() {
+
     }
     private void telefon() {
         System.out.println("Maxsulot modellini tanglang");
@@ -108,7 +109,7 @@ public class UserUI {
             switch (command) {
                 case 1 -> samsung_A32();
                 case 0 -> isExited = true;
-                default -> System.out.println("NoTogri buruq kiritdingiz");
+                default -> System.out.println("Notogri buruq kiritdingiz");
             }
         }
     }

@@ -79,8 +79,7 @@ public class Controller implements UI {
 
     private void login() {
         System.out.print("Emailingizni kiriting ⇨ ");
-        String noTrimEmail = scannerStr.nextLine();
-        String email = noTrimEmail.trim();
+        String email = scannerStr.nextLine();
 
         System.out.print("Passwordni kiriting ⇨ ");
         String password = scannerStr.nextLine();
@@ -89,33 +88,36 @@ public class Controller implements UI {
             List<User> all = userService.getAll();
 
             for (User user : all) {
-                if (user.getEmail().equalsIgnoreCase(email)
-                        && user.getPassword().equals(password)) {
-                    UserType userType = user.getUserType();
+                if (user.getEmail().equalsIgnoreCase(email)) {
+                    if (user.getPassword().equals(password)) {
+                        UserType userType = user.getUserType();
 
-                    if (userType == UserType.ADMIN) {
-                        AdminUI adminUI = new AdminUI();
-                        adminUI.start(user);
-                    } else {
-                        UserUI userUI = new UserUI();
-                        userUI.start(user);
+                        if (userType == UserType.ADMIN) {
+                            AdminUI adminUI = new AdminUI();
+                            adminUI.start(user);
+                        } else {
+                            UserUI userUI = new UserUI();
+                            userUI.start(user);
+                        }
                     }
-                } else {
-                    System.out.println("Email yoki password xato❗");
+                    else {
+                        System.out.println("Email yoki password xato❗");
+                    }
                     break;
                 }
             }
         } else {
             System.out.println("Email topilmadi. Qaytadan urinib ko'ring ↻");
         }
-
-        //-Maxsulotlarni kiritish
-        //-Maxsulotlar ro`yxatini ko`rish
-        //-Admin qo`shish
-        //-Admin o`chirish
-        //-Mahsulot categoriyalariga o`zgartirish kiritish
-        //-Mahsulotlarga o`zgartirish kirirtish
-
     }
 
+//-Maxsulotlarni kiritish
+//-Maxsulotlar ro`yxatini ko`rish
+//-Admin qo`shish
+//-Admin o`chirish
+//-Mahsulot categoriyalariga o`zgartirish kiritish
+//-Mahsulotlarga o`zgartirish kirirtish
+
 }
+
+
