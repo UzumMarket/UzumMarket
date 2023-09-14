@@ -71,7 +71,10 @@ public class Controller implements UI {
                     }
                 }
             }
+        } else {
+            System.out.println("Notog'ri buyrug' kiritdingiz.Qaytadan urinib ko'ring ↻");
         }
+
     }
 
 }
