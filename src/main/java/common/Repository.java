@@ -11,4 +11,6 @@ public interface Repository<ID, ENTITY extends BaseEntity<ID>> {
     List<ENTITY> getAll();
 
     Optional<ENTITY> findById(ID id);
+
+    void update(ENTITY entity);
 }
