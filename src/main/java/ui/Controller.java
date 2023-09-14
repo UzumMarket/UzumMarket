@@ -100,10 +100,12 @@ public class Controller implements UI {
                         UserUI userUI = new UserUI();
                         userUI.start(user);
                     }
+                } else {
+                    System.out.println("Email yoki password xato❗");
                 }
             }
         } else {
-            System.out.println("Notog'ri buyrug' kiritdingiz.Qaytadan urinib ko'ring ↻");
+            System.out.println("Email topilmadi. Qaytadan urinib ko'ring ↻");
         }
 
     }
