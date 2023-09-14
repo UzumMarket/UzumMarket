@@ -16,13 +16,18 @@ public class UserUI {
     Scanner scannerStr = new Scanner(System.in);
 
     public void start(User user) {
-        while (true) {
-            System.out.println("1 => Mahsulot Xarid Qilish");
-            System.out.println("2 => Savatim");
-            System.out.println("3 => Xarid Qilgan Mahsulotlarim Tarixi");
-            System.out.println("4 => Mablag");
-            System.out.println("5 => Sozlamalar");
-            System.out.println("6 => Chiqish");
+        boolean isExited = false;
+        while (!isExited) {
+            System.out.print("""
+                    1 ⇨ Mahsulot Xarid Qilish
+                    2 ⇨ Savatim
+                    3 ⇨ Xarid Qilgan Mahsulotlarim Tarixi
+                    4 ⇨ Mablag
+                    5 ⇨ Sozlamalar
+                    
+                    0 ⇨ Chiqish 
+                    >>\s""");
+
 
             int command = scannerInt.nextInt();
             switch (command) {
@@ -31,7 +36,8 @@ public class UserUI {
                 case 3 -> xaridQilganMahsulotlarimTarixi();
                 case 4 -> mablag();
                 case 5 -> sozlamalar();
-                case 6 -> System.exit(0);
+                case 0 -> isExited = true;
+                default -> System.out.println("NoTogri buruq kiritdingiz");
             }
         }
     }
@@ -41,7 +47,7 @@ public class UserUI {
 
         int count = 0;
         for (Categories categories : categoriesService.getAll()) {
-            System.out.println(count+1+" "+categories.getName());
+            System.out.println(count+1+". "+categories.getName());
         }
 
 
