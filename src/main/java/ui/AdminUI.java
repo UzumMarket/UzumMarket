@@ -9,7 +9,9 @@ import user.User;
 import user.UserService;
 
 import java.util.Locale;
+import java.util.Optional;
 import java.util.Scanner;
+import java.util.UUID;
 
 public class AdminUI {
 
@@ -52,9 +54,54 @@ public class AdminUI {
     }
 
     private void addAdmin() {
+        System.out.print("Admin Kiritmoqchi bulgan userni idisini kiriting: ");
+        String adminId = scannerStr.nextLine();
+        UUID uuid = UUID.fromString(adminId);
+        Optional<User> optionalUser = userService.findById(uuid);
+
+        if(optionalUser.isPresent()){
+
+        }else{
+            System.out.println("User Topilmadi!");
+        }
     }
 
     private void viewProductsList() {
+        boolean isExit = false;
+
+        while (!isExit) {
+            if (categoriesService.getAll().size() > 0) {
+                int count = 0;
+                for (Categories categories : categoriesService.getAll()) {
+                    count++;
+                    System.out.println(count + " - " + categories.getName() + " - " + productService.findByCategoryId(categories.getId()).size());
+                }
+                System.out.println("0. Chiqish");
+
+                System.out.print(">> ");
+
+                int key = scannerInt.nextInt();
+                categoriesService.
+
+                if (key == 0) {
+                    isExit = true;
+                } else if (key > 0 && categoriesService.getAll().size() >= key) {
+                    if (productService.findByCategoryId(categoriesService.getAll().get(key - 1).getId()).size() > 0) {
+                        for (Product product : productService.findByCategoryId(categoriesService.getAll().get(key - 1).getId())) {
+                            System.out.println(product.getName() + product.getModel() + product.getPrice() + " so'm");
+                        }
+                    }else{
+                        System.out.println("Mahsulotlar topilmadi!");
+                    }
+                } else {
+                    System.out.println("Noto'g'ri buyrug' kiritingiz!");
+                }
+
+            } else {
+                isExit = true;
+                System.out.println("Catogorylar topilmadi!");
+            }
+        }
     }
 
     private void addProducts() {
