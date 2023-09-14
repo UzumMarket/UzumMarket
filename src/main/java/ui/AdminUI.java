@@ -7,9 +7,12 @@ import product.Product;
 import product.ProductService;
 import product.Status;
 import user.User;
+import user.UserRepository;
 import user.UserService;
+import user.UserType;
 
 import java.util.Locale;
+import java.util.Optional;
 import java.util.Scanner;
 import java.util.UUID;
 
@@ -27,7 +30,7 @@ public class AdminUI {
         boolean isExited = false;
         while (!isExited) {
             System.out.print("""
-                    1. Mahsulot categoriyasini qo`shish 
+                    1. Mahsulot categoriyasini qo`shish
                     2. Mahsulotlar kiritish 
                     3. Mahsulotlar ro`yxatini ko`rish 
                     4. Mahsulotlarga o`zgartirish kiritish 
@@ -70,8 +73,8 @@ public class AdminUI {
                     count2++;
                 }
                 int command2 = scannerInt.nextInt();
-                if (command2 > 0 && command2 < productService.getAll().size()) {                
-                  System.out.println("1. Modelini o`zgartirish: ");
+                if (command2 > 0 && command2 < productService.getAll().size()) {
+                    System.out.println("1. Modelini o`zgartirish: ");
 
                     System.out.println("""
                             1. Nomini o`zgartirish
@@ -105,13 +108,43 @@ public class AdminUI {
     }
 
     private void deleteAdmin() {
+        System.out.print("Admin olmoqchi bulgan user idisi kiriting: ");
+        String id = scannerStr.nextLine();
+        UUID uuid = UUID.fromString(id);
+        Optional<User> optionalUser = userService.findById(uuid);
 
+        if (optionalUser.isPresent()) {
+            User user = optionalUser.get();
+            if (user.getUserType() != UserType.USER) {
+                user.setUserType(UserType.USER);
+                UserRepository.getInstance().update(user);
+            } else {
+                System.out.println("Ushbu user adminlar royhatida mavjud emas!");
+            }
+        } else {
+            System.out.println("Bu user admin emas!");
+        }
     }
 
     private void addAdmin() {
+        System.out.print("Admin qilmoqchi bulgan user idisi kiriting: ");
+        String id = scannerStr.nextLine();
+        UUID uuid = UUID.fromString(id);
+        Optional<User> optionalUser = userService.findById(uuid);
+
+        if (optionalUser.isPresent()) {
+            User user = optionalUser.get();
+            if (user.getUserType() != UserType.ADMIN) {
+                user.setUserType(UserType.ADMIN);
+                UserRepository.getInstance().update(user);
+            } else {
+                System.out.println("Ushbu user uje admin bulgan!");
+            }
+        } else {
+            System.out.println("Bu user topilmadi!");
+        }
 
     }
-
 
 
     private void viewProductsList() {
@@ -196,6 +229,5 @@ public class AdminUI {
         } else {
             System.out.println("Catagory Topilmadi!");
         }
-
     }
 }
