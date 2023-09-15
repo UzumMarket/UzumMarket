@@ -35,7 +35,7 @@ public class AdminUI {
             System.out.print("""
                     1. Mahsulot categoriyasini qo`shish
                     2. Mahsulotlar kiritish 
-                    3. Mahsulotlar ro`yxatini ko`rish 
+                        3. Mahsulotlar ro`yxatini ko`rish 
                     4. Mahsulotlarga o`zgartirish kiritish 
                     5. Admin qo`shish
                     6. Admin o`chirish
@@ -173,38 +173,49 @@ public class AdminUI {
     private void deleteAdmin() {
         System.out.print("Admin olmoqchi bulgan user idisi kiriting: ");
         String id = scannerStr.nextLine();
-        UUID uuid = UUID.fromString(id);
-        Optional<User> optionalUser = userService.findById(uuid);
 
-        if (optionalUser.isPresent()) {
-            User user = optionalUser.get();
-            if (user.getUserType() != UserType.USER) {
-                user.setUserType(UserType.USER);
-                UserRepository.getInstance().update(user);
+        try {
+            UUID uuid = UUID.fromString(id);
+            Optional<User> optionalUser = userService.findById(uuid);
+
+            if (optionalUser.isPresent()) {
+                User user = optionalUser.get();
+                if (user.getUserType() != UserType.USER) {
+                    user.setUserType(UserType.USER);
+                    UserRepository.getInstance().update(user);
+                } else {
+                    System.out.println("Ushbu user adminlar royhatida mavjud emas!");
+                }
             } else {
-                System.out.println("Ushbu user adminlar royhatida mavjud emas!");
+                System.out.println("Bu user admin emas!");
             }
-        } else {
-            System.out.println("Bu user admin emas!");
+        } catch (IllegalArgumentException e) {
+            System.out.println("Id xato kiritildi!");
         }
+
     }
 
     private void addAdmin() {
         System.out.print("Admin qilmoqchi bulgan user idisi kiriting: ");
         String id = scannerStr.nextLine();
-        UUID uuid = UUID.fromString(id);
-        Optional<User> optionalUser = userService.findById(uuid);
+        try {
+            UUID uuid = UUID.fromString(id);
+            Optional<User> optionalUser = userService.findById(uuid);
 
-        if (optionalUser.isPresent()) {
-            User user = optionalUser.get();
-            if (user.getUserType() != UserType.ADMIN) {
-                user.setUserType(UserType.ADMIN);
-                UserRepository.getInstance().update(user);
+            if (optionalUser.isPresent()) {
+                User user = optionalUser.get();
+                if (user.getUserType() != UserType.ADMIN) {
+                    user.setUserType(UserType.ADMIN);
+                    UserRepository.getInstance().update(user);
+                } else {
+                    System.out.println("Ushbu user uje admin bulgan!");
+                }
             } else {
-                System.out.println("Ushbu user uje admin bulgan!");
+                System.out.println("Bu user topilmadi!");
             }
-        } else {
-            System.out.println("Bu user topilmadi!");
+
+        } catch (IllegalArgumentException e) {
+            System.out.println("Id xato kiritildi!");
         }
 
     }

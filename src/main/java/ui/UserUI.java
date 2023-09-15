@@ -30,7 +30,7 @@ public class UserUI {
                     4 ⇨ Mablag
                     5 ⇨ Sozlamalar
                                         
-                    0 ⇨ Chiqish 
+                    0 ⇨ Chiqish
                     >>\s""");
 
 
