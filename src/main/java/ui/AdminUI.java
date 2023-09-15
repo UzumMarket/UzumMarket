@@ -79,9 +79,12 @@ public class AdminUI {
                 count2++;
             }
             int command2 = scannerInt.nextInt();
-            productService.delete(byCategoryId.get(command2 - 1).getId());
-            System.out.println("Product muvaffaqqiyatli o`chirildi!");
-
+            if (command2 > 0 && command2 <= byCategoryId.size()) {
+                productService.delete(byCategoryId.get(command2 - 1).getId());
+                System.out.println("Product muvaffaqqiyatli o`chirildi!");
+            } else {
+                System.out.println("Buyruq noto`g`ri kiritildi!");
+            }
         } else {
             System.out.println("Buyruq noto`g`ri kiritildi!");
         }
