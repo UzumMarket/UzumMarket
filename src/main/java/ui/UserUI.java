@@ -40,7 +40,7 @@ public class UserUI {
                 case 2 -> savatim(user.getId());
                 case 3 -> xaridQilganMahsulotlarimTarixi(user);
                 case 4 -> mablag(user);
-                case 5 -> sozlamalar();
+                case 5 -> sozlamalar(user);
                 case 0 -> isExited = true;
                 default -> System.out.println("NoTogri buruq kiritdingiz");
             }
@@ -145,8 +145,72 @@ public class UserUI {
         userRepository.update(user);
     }
 
-    private void sozlamalar() {
+    private void sozlamalar(User user) {
+        boolean isExited = false;
+        while (!isExited) {
+            System.out.print("""
+                    1. Parolni o'zgartirish
+                    2. Telefon raqamni o'zgartirish
+                    3. Email ni o'zgartirish
+                    0. Chiqish
+                    >> \s""");
+            int command = scannerInt.nextInt();
+            switch (command) {
+                case 1 -> changePassword(user);
+                case 2 -> changePhoneNumber(user);
+                case 3 -> changeEmail(user);
+                case 0 -> isExited = true;
+                default -> System.out.println("Noto'g'ri buyruq kiritdingiz");
+            }
+        }
 
+    }
+
+    private void changeEmail(User user) {
+        System.out.print("Yangi email kiriting: ");
+        String newEmail = scannerStr.nextLine();
+        List<User> users = userRepository.getAll();
+        for (User user1: users){
+            if (user1.getEmail().equals(newEmail)){
+                System.out.println("Bu email allaqachon mavjud");
+            }else {
+                user.setEmail(newEmail);
+                userRepository.update(user);
+            System.out.println("Email muvaffaqiyatli o'zagartirildi");
+                System.out.println();
+            }
+        }
+    }
+
+    private void changePhoneNumber(User user) {
+        System.out.print("Yangi raqam kiriting: ");
+        String newPhoneNumber = scannerStr.nextLine();
+        List<User> users = userRepository.getAll();
+        for (User user1 : users) {
+            if (user1.getPhoneNumber().equals(newPhoneNumber)) {
+                System.out.println("Bu telefon raqam allaqachon foydalanilgan");
+            } else {
+                user.setPhoneNumber(newPhoneNumber);
+                userRepository.update(user);
+                System.out.println("Raqam muvaffaqiyatli o'zgartirildi");
+                System.out.println();
+            }
+        }
+    }
+
+    private void changePassword(User user) {
+        System.out.print("Yangi parol kiriting: ");
+        String newPassword = scannerStr.nextLine();
+        System.out.print("Parolni qayta kiriting: ");
+        String newPassword2 = scannerStr.nextLine();
+        if (newPassword.equals(newPassword2)) {
+            user.setPassword(newPassword);
+            System.out.println("Parol muvaffaqiyatli o'zgartirildi");
+            userRepository.update(user);
+            System.out.println();
+        } else {
+            System.out.println("Parol mos kelmadi");
+        }
     }
 
     private void telefon() {
