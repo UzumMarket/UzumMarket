@@ -32,12 +32,14 @@ public class AdminUI {
         boolean isExited = false;
         while (!isExited) {
             System.out.print("""
-                    1. Mahsulot categoriyasini qo`shish
-                    2. Mahsulotlar kiritish
-                    3. Mahsulotlar ro`yxatini ko`rish
-                    4. Mahsulotlarga o`zgartirish kiritish
-                    5. Admin qo`shish
-                    6. Admin o`chirish
+                    1. Categoriyalar qo`shish
+                    2. Categoriya o`chirish
+                    3. Mahsulotlar kiritish 
+                    4. Mahsulot o`chirish
+                    5. Mahsulotlar ro`yxatini ko`rish 
+                    6. Mahsulotlarga o`zgartirish kiritish 
+                    7. Admin qo`shish
+                    8. Admin o`chirish
                                         
                     0. Chiqish
                     >>\s""");
@@ -45,14 +47,63 @@ public class AdminUI {
 
             switch (command) {
                 case 1 -> addCategories();
-                case 2 -> addProducts();
-                case 3 -> viewProductsList();
-                case 4 -> updateProducts();
-                case 5 -> addAdmin();
-                case 6 -> deleteAdmin();
+                case 2 -> removeCategories();
+                case 3 -> addProducts();
+                case 4 -> removeProducts();
+                case 5 -> viewProductsList();
+                case 6 -> updateProducts();
+                case 7 -> addAdmin();
+                case 8 -> deleteAdmin();
                 case 0 -> isExited = true;
                 default -> System.out.println("Noto`g`ri buyruq kiritdingiz!");
             }
+        }
+    }
+
+    private void removeProducts() {
+        System.out.println("Product o`chirilishi kerak bo`lgan categoriyani tanlang: ");
+        int count1 = 0;
+        for (Categories categories : categoriesService.getAll()) {
+            System.out.println(count1 + 1 + " " + categories.getName());
+            count1++;
+        }
+        int command1 = scannerInt.nextInt();
+
+
+        if (command1 > 0 && command1 <= categoriesService.getAll().size()) {
+            System.out.println("O`chirilishi kerak bo`lgan productni tanlang: ");
+            List<Product> byCategoryId = productService.findByCategoryId(categoriesService.getAll().get(command1 - 1).getId());
+            int count2 = 0;
+            for (Product product : byCategoryId) {
+                System.out.println(count2 + 1 + " " + product.getName() + " " + product.getModel() + " " + product.getPrice());
+                count2++;
+            }
+            int command2 = scannerInt.nextInt();
+            productService.delete(byCategoryId.get(command2 - 1).getId());
+            System.out.println("Product muvaffaqqiyatli o`chirildi!");
+
+        } else {
+            System.out.println("Buyruq noto`g`ri kiritildi!");
+        }
+    }
+
+    private void removeCategories() {
+        System.out.println("O`chirmoqchi bo`lgan categoriyani tanlang: ");
+        int count = 0;
+        for (Categories categories : categoriesService.getAll()) {
+            System.out.println(count + 1 + " " + categories.getName());
+            count++;
+        }
+        int command1 = scannerInt.nextInt();
+        if (command1 > 0 && command1 <= categoriesService.getAll().size()) {
+            List<Product> byCategoryId = productService.findByCategoryId(categoriesService.getAll().get(command1 - 1).getId());
+            for (Product product : byCategoryId) {
+                productService.delete(product.getId());
+            }
+            categoriesService.delete(categoriesService.getAll().get(command1 - 1).getId());
+            System.out.println("Categoriya va uning productlari muvaffaqqiyatli o`chirildi");
+        } else {
+            System.out.println("Noto`g`ri buyruq kiritdingiz!");
         }
     }
 
@@ -129,11 +180,16 @@ public class AdminUI {
                             }
                             case 4 -> {
                                 System.out.print("Yangi narxni kiriting: ");
-                                Double newPrice = scannerInt.nextDouble();
-                                Product product = byCategoryId.get(command2 - 1);
-                                product.setPrice(newPrice);
-                                productRepository.update(product);
-                                System.out.println("O`zgartirish amalga oshirildi!");
+                                try {
+                                    Double newPrice = scannerInt.nextDouble();
+                                    Product product = byCategoryId.get(command2 - 1);
+                                    product.setPrice(newPrice);
+                                    productRepository.update(product);
+                                    System.out.println("O`zgartirish amalga oshirildi!");
+                                } catch (IllegalArgumentException e) {
+                                    System.out.println("Narx xato kiritildi!");
+                                }
+
                             }
                             case 5 -> {
                                 System.out.println("Yangi izohni kiriting: ");

@@ -38,7 +38,7 @@ public class UserUI {
 
             int command = scannerInt.nextInt();
             switch (command) {
-                case 1 -> mahsulotXaridQilish();
+                case 1 -> mahsulotXaridQilish(user);
                 case 2 -> savatim(user.getId());
                 case 3 -> xaridQilganMahsulotlarimTarixi(user);
                 case 4 -> mablag(user);
@@ -49,9 +49,8 @@ public class UserUI {
         }
     }
 
-    private void mahsulotXaridQilish() {
+    private void mahsulotXaridQilish(User user) {
         System.out.println("Mahsulotlar categoriyasini tanlang: ");
-
         int count = 0;
         for (Categories categories : categoriesService.getAll()) {
             count++;
@@ -72,7 +71,7 @@ public class UserUI {
 
             int command = scannerInt.nextInt();
             switch (command) {
-                case 1 -> telefon();
+                //case 1 -> telefon();
                 case 0 -> isExited = true;
                 default -> System.out.println("Notog'ri buyrug' kiritdingiz");
             }
@@ -258,47 +257,47 @@ public class UserUI {
         }
     }
 
-    private void telefon() {
-        System.out.println("Maxsulot modellini tanglang");
-        boolean isExited = false;
-        while (!isExited) {
-            System.out.print("""
-                                        
-                    1 ⇨ Samsung | A32 | 5 000 000 so’m
-                    2 ⇨ Iphone | XS | 5 550 000 so’m
-                    3 ⇨ Iphone | 12 | 11 000 000 so’
-                    4 ⇨ LG | 11 | 2 000 000 so’m
-                    5 ⇨ Huawei | 77 | 2 000 000 so’m
-                    6. Samsung | S23 | 20 000 000 so’m
-                                        
-                    0 ⇨ Chiqish
-                    >>\s""");
-            int command = scannerInt.nextInt();
-            switch (command) {
-                case 1 -> samsung_A32();
-                case 0 -> isExited = true;
-                default -> System.out.println("Notogri buruq kiritdingiz");
-            }
-        }
-    }
+//    private void telefon() {
+//        System.out.println("Maxsulot modellini tanglang");
+//        boolean isExited = false;
+//        while (!isExited) {
+//            System.out.print("""
+//
+//                    1 ⇨ Samsung | A32 | 5 000 000 so’m
+//                    2 ⇨ Iphone | XS | 5 550 000 so’m
+//                    3 ⇨ Iphone | 12 | 11 000 000 so’
+//                    4 ⇨ LG | 11 | 2 000 000 so’m
+//                    5 ⇨ Huawei | 77 | 2 000 000 so’m
+//                    6. Samsung | S23 | 20 000 000 so’m
+//
+//                    0 ⇨ Chiqish
+//                    >>\s""");
+//            int command = scannerInt.nextInt();
+//            switch (command) {
+//                case 1 -> samsung_A32();
+//                case 0 -> isExited = true;
+//                default -> System.out.println("Notogri buruq kiritdingiz");
+//            }
+//        }
+//    }
 
-    private void samsung_A32() {
-        boolean isExited = false;
-        while (!isExited) {
-            System.out.print("""                 
-                    1 ⇨ Savatga Qo’shish
-                    2 ⇨ Sotib Olish
-                    0 ⇨ Chiqish
-
-                    >>\s""");
-
-
-            int command = scannerInt.nextInt();
-            switch (command) {
-                case 1 -> productService.add(new Product());
-                case 0 -> isExited = true;
-                default -> System.out.println("NoTogri buruq kiritdingiz");
-            }
-        }
-    }
+//    private void samsung_A32() {
+//        boolean isExited = false;
+//        while (!isExited) {
+//            System.out.print("""
+//                    1 ⇨ Savatga Qo’shish
+//                    2 ⇨ Sotib Olish
+//                    0 ⇨ Chiqish
+//
+//                    >>\s""");
+//
+//
+//            int command = scannerInt.nextInt();
+//            switch (command) {
+//                case 1 -> productService.add(new Product());
+//                case 0 -> isExited = true;
+//                default -> System.out.println("NoTogri buruq kiritdingiz");
+//            }
+//        }
+//    }
 }
