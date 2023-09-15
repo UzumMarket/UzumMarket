@@ -29,7 +29,7 @@ public class UserUI {
                     4 ⇨ Mablag
                     5 ⇨ Sozlamalar
                                         
-                    0 ⇨ Chiqish 
+                    0 ⇨ Chiqish
                     >>\s""");
 
 
@@ -52,7 +52,7 @@ public class UserUI {
         int count = 0;
         for (Categories categories : categoriesService.getAll()) {
             count++;
-            System.out.println(count+". "+categories.getName());
+            System.out.println(count + ". " + categories.getName());
         }
         boolean isExited = false;
         while (!isExited) {
@@ -147,8 +147,8 @@ public class UserUI {
 
             int command = scannerInt.nextInt();
             switch (command) {
-                case 1 ->  productService.add(new Product());
-                case 0 ->  isExited = true;
+                case 1 -> productService.add(new Product());
+                case 0 -> isExited = true;
                 default -> System.out.println("NoTogri buruq kiritdingiz");
             }
         }
