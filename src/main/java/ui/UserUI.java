@@ -4,11 +4,13 @@ import categories.Categories;
 import categories.CategoriesService;
 import product.Product;
 import product.ProductService;
+import product.Status;
 import user.User;
 import user.UserRepository;
 import user.UserService;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Scanner;
 import java.util.UUID;
 
@@ -77,19 +79,62 @@ public class UserUI {
     }
 
     private void savatim(UUID uuid) {
-        User user = userService.findById(uuid).get();
-        List<Product> basket = user.getBasket();
-        int count = 1;
-        double allPrice = 0;
+        boolean isExited = false;
+        while (!isExited) {
+            User user = userService.findById(uuid).get();
+            List<Product> basket = user.getBasket();
+            int count = 1;
+            double allPrice = 0;
 
-        if (basket.size() > 0) {
-            for (Product product : basket) {
-                System.out.println(count + ". " + product.getName() + " | " + product.getModel() + " | " + product.getPrice());
-                allPrice += product.getPrice();
+            if (basket.size() > 0) {
+                for (Product product : basket) {
+                    System.out.println(count + ". " + product.getName() + " | " + product.getModel() + " | " + product.getPrice());
+                    allPrice += product.getPrice();
+                }
+                System.out.println("Jami summa: " + allPrice);
+                System.out.println("#.Sotib olish");
+                System.out.println("*.O'chirish");
+                System.out.println("%.Savatni tozalash");
+                System.out.println("0.Chiqish" + "\n");
+
+                System.out.print(">> ");
+                String key = scannerStr.nextLine();
+                switch (key) {
+                    case "#" -> {
+                        if (user.getBalance() >= allPrice) {
+                            user.setBoughtProductsHistory(basket);
+                            for (Product product : basket) {
+                                product.setStatus(Status.DELIVERED);
+                                user.getBasket().remove(product);
+                            }
+                            user.setBalance(user.getBalance() - allPrice);
+
+                            System.out.println("Product sotib olindi❗" + "\n");
+                        } else {
+                            System.out.println("Balansingizda mablag' yetarli emas❗");
+                        }
+                    }
+                    case "*" -> {
+                        int num = 1;
+                        for (Product product : basket) {
+                            System.out.println(num + ". " + product.getName() + " | " + product.getModel() + " | " + product.getPrice());
+                        }
+                        System.out.println("O'chirmoqchi bo'lgan productni tanlang ⇨ ");
+                        int deleteProduct = scannerInt.nextInt();
+                        Product product = basket.get(deleteProduct);
+                        user.getBasket().remove(product);
+                        System.out.println("Product o'chirildi✅" + "\n");
+                    }
+                    case "%" -> {
+                        user.getBasket().removeAll(basket);
+                    }
+                    case "0" -> isExited = true;
+                    default -> System.out.println("Notog'ri buyrug' kiritdingiz!");
+                }
+            } else {
+                System.out.println("Sizda birorta ham product yo'q❗" + "\n");
+                break;
             }
-            System.out.println("Jami summa: " + allPrice);
-        } else {
-            System.out.println("Sizda birorta ham product yo'q❗" + "\n");
         }
     }
 
@@ -169,13 +214,13 @@ public class UserUI {
         System.out.print("Yangi email kiriting: ");
         String newEmail = scannerStr.nextLine();
         List<User> users = userRepository.getAll();
-        for (User user1: users){
-            if (user1.getEmail().equals(newEmail)){
+        for (User user1 : users) {
+            if (user1.getEmail().equals(newEmail)) {
                 System.out.println("Bu email allaqachon mavjud");
-            }else {
+            } else {
                 user.setEmail(newEmail);
                 userRepository.update(user);
-            System.out.println("Email muvaffaqiyatli o'zagartirildi");
+                System.out.println("Email muvaffaqiyatli o'zagartirildi");
                 System.out.println();
             }
         }
