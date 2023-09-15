@@ -29,14 +29,13 @@ public class AdminUI {
     private final ProductRepository productRepository = ProductRepository.getInstance();
 
     public void start(User user) {
-
         boolean isExited = false;
         while (!isExited) {
             System.out.print("""
                     1. Mahsulot categoriyasini qo`shish
-                    2. Mahsulotlar kiritish 
-                        3. Mahsulotlar ro`yxatini ko`rish 
-                    4. Mahsulotlarga o`zgartirish kiritish 
+                    2. Mahsulotlar kiritish
+                    3. Mahsulotlar ro`yxatini ko`rish
+                    4. Mahsulotlarga o`zgartirish kiritish
                     5. Admin qo`shish
                     6. Admin o`chirish
                                         
@@ -58,8 +57,6 @@ public class AdminUI {
     }
 
     private void updateProducts() {
-
-
         if (categoriesService.getAll().size() > 0) {
             System.out.println("Iltimos, mahsulot categoriyalaridan birini tanlang: ");
             int count1 = 0;
@@ -68,7 +65,6 @@ public class AdminUI {
                 count1++;
             }
             int command1 = scannerInt.nextInt();
-
 
             if (command1 > 0 && command1 <= categoriesService.getAll().size()) {
 
