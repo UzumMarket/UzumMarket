@@ -25,7 +25,8 @@ public class UserUI {
     public void start(User user) {
         boolean isExited = false;
         while (!isExited) {
-            System.out.print("""         
+            System.out.print("""
+                             
                     1 ⇨ Mahsulot Xarid Qilish
                     2 ⇨ Savatim
                     3 ⇨ Xarid Qilgan Mahsulotlarim Tarixi
@@ -50,33 +51,75 @@ public class UserUI {
     }
 
     private void mahsulotXaridQilish(User user) {
-        System.out.println("Mahsulotlar categoriyasini tanlang: ");
-        int count = 0;
-        for (Categories categories : categoriesService.getAll()) {
-            count++;
-            System.out.println(count + ". " + categories.getName());
-        }
-
-        boolean isExited = false;
-        while (!isExited) {
-            System.out.print("""   
-                    1 ⇨ Telefon
-                    2 ⇨ Noutbook
-                    3 ⇨ Televisor
-                    4 ⇨ Kiyimlar
-                    5 ⇨ Mashinalar
-                                        
-                    0 ⇨ Chiqish 
-                    >>\s""");
+        if (categoriesService.getAll().size() > 0) {
+            System.out.println("Mahsulotlar categoriyasini tanlang: ");
+            int count = 0;
+            for (Categories categories : categoriesService.getAll()) {
+                count++;
+                System.out.println(count + ". " + categories.getName());
+            }
 
             int command = scannerInt.nextInt();
-            switch (command) {
-                //case 1 -> telefon();
-                case 0 -> isExited = true;
-                default -> System.out.println("Notog'ri buyrug' kiritdingiz");
+            if (command > 0 && command <= categoriesService.getAll().size()) {
+                UUID id = categoriesService.getAll().get(command - 1).getId();
+                List<Product> byCategoryId = productService.findByCategoryId(id);
+                //Product product = new Product(UUID.randomUUID(), "telefon", "A53", id,4000,"zor",Status.DELIVERED);
+                count = 0;
+                for (Product product : byCategoryId) {
+                    count++;
+                    System.out.println(count + ". " + product.getName());
+                }
+
+                System.out.println(">> ");
+
+                int command1 = scannerInt.nextInt();
+
+                if (command1 > 0 && command1 <= categoriesService.getAll().size()) {
+
+                    Product product = productService.getAll().get(command1 - 1);
+
+                    System.out.print(""" 
+
+                            1 ⇨ Savatga qo'shish
+                            2 ⇨ Sotib olish
+
+                            0 ⇨ Chiqish
+                            >>\s""");
+                    int command12 = scannerInt.nextInt();
+                    switch (command12) {
+                        case 1 -> addBacket(product, user);
+                        case 2 -> purchase(product, user);
+                        default -> System.out.println("NoTogri buruq kiritdingiz");
+                    }
+                } else {
+                    System.out.println("Noto`g`ri buyruq kiritdingiz!");
+                }
             }
         }
+
     }
+
+
+    private void purchase(Product product, User user) {
+        product.setStatus(Status.DELIVERED);
+        if (user.getBalance() >= product.getPrice()) {
+            List<Product> boughtProductsHistory = user.getBoughtProductsHistory();
+            boughtProductsHistory.add(product);
+            user.setBoughtProductsHistory(boughtProductsHistory);
+            user.setBalance(user.getBalance() - product.getPrice());
+            userRepository.update(user);
+        } else {
+            System.out.println("Hisobgingizdagi mablag yetarli emas");
+        }
+    }
+
+    private void addBacket(Product product, User user) {
+        List<Product> basket = user.getBasket();
+        basket.add(product);
+        user.setBasket(basket);
+        userRepository.update(user);
+    }
+
 
     private void savatim(UUID uuid) {
         boolean isExited = false;
@@ -256,48 +299,5 @@ public class UserUI {
             System.out.println("Parol mos kelmadi");
         }
     }
-
-//    private void telefon() {
-//        System.out.println("Maxsulot modellini tanglang");
-//        boolean isExited = false;
-//        while (!isExited) {
-//            System.out.print("""
-//
-//                    1 ⇨ Samsung | A32 | 5 000 000 so’m
-//                    2 ⇨ Iphone | XS | 5 550 000 so’m
-//                    3 ⇨ Iphone | 12 | 11 000 000 so’
-//                    4 ⇨ LG | 11 | 2 000 000 so’m
-//                    5 ⇨ Huawei | 77 | 2 000 000 so’m
-//                    6. Samsung | S23 | 20 000 000 so’m
-//
-//                    0 ⇨ Chiqish
-//                    >>\s""");
-//            int command = scannerInt.nextInt();
-//            switch (command) {
-//                case 1 -> samsung_A32();
-//                case 0 -> isExited = true;
-//                default -> System.out.println("Notogri buruq kiritdingiz");
-//            }
-//        }
-//    }
-
-//    private void samsung_A32() {
-//        boolean isExited = false;
-//        while (!isExited) {
-//            System.out.print("""
-//                    1 ⇨ Savatga Qo’shish
-//                    2 ⇨ Sotib Olish
-//                    0 ⇨ Chiqish
-//
-//                    >>\s""");
-//
-//
-//            int command = scannerInt.nextInt();
-//            switch (command) {
-//                case 1 -> productService.add(new Product());
-//                case 0 -> isExited = true;
-//                default -> System.out.println("NoTogri buruq kiritdingiz");
-//            }
-//        }
-//    }
 }
+
