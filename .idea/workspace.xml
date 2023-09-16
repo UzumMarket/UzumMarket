@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1cce45e6-4b76-45e5-acc8-023eabb41a8b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ui/UserUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/UserUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -97,7 +96,9 @@
       <workItem from="1692708575083" duration="297000" />
       <workItem from="1694835443654" duration="2432000" />
       <workItem from="1694841331935" duration="2174000" />
-      <workItem from="1694847125762" duration="1511000" />
+      <workItem from="1694847125762" duration="1689000" />
+      <workItem from="1694851754235" duration="81000" />
+      <workItem from="1694858155269" duration="340000" />
     </task>
     <task id="LOCAL-00001" summary="Entity">
       <created>1692694492175</created>
@@ -148,7 +149,14 @@
       <option name="project" value="LOCAL" />
       <updated>1694793824572</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="mahsulot harid qilish tugati">
+      <created>1694848664715</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1694848664715</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -161,6 +169,7 @@
     <MESSAGE value="Changed Mail" />
     <MESSAGE value="Changed Mails" />
     <MESSAGE value="UIlar qoshildi!" />
-    <option name="LAST_COMMIT_MESSAGE" value="UIlar qoshildi!" />
+    <MESSAGE value="mahsulot harid qilish tugati" />
+    <option name="LAST_COMMIT_MESSAGE" value="mahsulot harid qilish tugati" />
   </component>
 </project>
