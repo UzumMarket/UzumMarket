@@ -34,7 +34,10 @@ public class UserUI {
                     5 ⇨ Sozlamalar
                                         
                     0 ⇨ Chiqish
-                    >>\s""");
+                    
+                    >>\s
+                    
+                    """);
 
 
             int command = scannerInt.nextInt();
@@ -63,14 +66,13 @@ public class UserUI {
             if (command > 0 && command <= categoriesService.getAll().size()) {
                 UUID id = categoriesService.getAll().get(command - 1).getId();
                 List<Product> byCategoryId = productService.findByCategoryId(id);
-                //Product product = new Product(UUID.randomUUID(), "telefon", "A53", id,4000,"zor",Status.DELIVERED);
                 count = 0;
                 for (Product product : byCategoryId) {
                     count++;
                     System.out.println(count + ". " + product.getName());
                 }
 
-                System.out.println(">> ");
+                System.out.print(">> ");
 
                 int command1 = scannerInt.nextInt();
 
@@ -84,7 +86,8 @@ public class UserUI {
                             2 ⇨ Sotib olish
 
                             0 ⇨ Chiqish
-                            >>\s""");
+                            """);
+                    System.out.print(">> ");
                     int command12 = scannerInt.nextInt();
                     switch (command12) {
                         case 1 -> addBacket(product, user);
