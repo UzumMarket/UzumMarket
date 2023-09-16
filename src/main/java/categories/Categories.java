@@ -17,4 +17,5 @@ public class Categories extends BaseEntity<UUID> implements Serializable {
         super(uuid);
         this.name = name;
     }
+
 }

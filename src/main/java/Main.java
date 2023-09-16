@@ -16,7 +16,7 @@ public class Main {
             s.add(user);
         }
         System.out.println(s.getAll());
-        System.out.println("All user list⬆\uFE0F");
+        System.out.println("All user list⬆️");
         Controller controller = new Controller();
         controller.start();
     }
