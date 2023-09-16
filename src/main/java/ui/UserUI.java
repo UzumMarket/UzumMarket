@@ -10,15 +10,18 @@ import user.UserRepository;
 import user.UserService;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.Scanner;
 import java.util.UUID;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 public class UserUI {
     private final UserService userService = UserService.getInstance();
     private final CategoriesService categoriesService = CategoriesService.getInstance();
     private final ProductService productService = ProductService.getInstance();
     private final UserRepository userRepository = UserRepository.getInstance();
+    private final ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
     Scanner scannerInt = new Scanner(System.in);
     Scanner scannerStr = new Scanner(System.in);
 
@@ -26,19 +29,15 @@ public class UserUI {
         boolean isExited = false;
         while (!isExited) {
             System.out.print("""
-                             
                     1 ⇨ Mahsulot Xarid Qilish
                     2 ⇨ Savatim
                     3 ⇨ Xarid Qilgan Mahsulotlarim Tarixi
-                    4 ⇨ Mablag
+                    4 ⇨ Mablag'
                     5 ⇨ Sozlamalar
                                         
                     0 ⇨ Chiqish
-                    
-                    >>\s
-                    
-                    """);
-
+                                    
+                    >>\s""");
 
             int command = scannerInt.nextInt();
             switch (command) {
@@ -48,7 +47,7 @@ public class UserUI {
                 case 4 -> mablag(user);
                 case 5 -> sozlamalar(user);
                 case 0 -> isExited = true;
-                default -> System.out.println("NoTogri buruq kiritdingiz");
+                default -> System.out.println("Notog'ri burug' kiritdingiz");
             }
         }
     }
@@ -81,25 +80,22 @@ public class UserUI {
                     Product product = productService.getAll().get(command1 - 1);
 
                     System.out.print(""" 
-
                             1 ⇨ Savatga qo'shish
                             2 ⇨ Sotib olish
 
                             0 ⇨ Chiqish
-                            """);
-                    System.out.print(">> ");
+                            >>\s""");
                     int command12 = scannerInt.nextInt();
                     switch (command12) {
                         case 1 -> addBacket(product, user);
                         case 2 -> purchase(product, user);
-                        default -> System.out.println("NoTogri buruq kiritdingiz");
+                        default -> System.out.println("Noto'g'ri burug' kiritdingiz❗️");
                     }
                 } else {
-                    System.out.println("Noto`g`ri buyruq kiritdingiz!");
+                    System.out.println("Noto'g'ri buyrug' kiritdingiz❗️");
                 }
             }
         }
-
     }
 
 
@@ -112,7 +108,7 @@ public class UserUI {
             user.setBalance(user.getBalance() - product.getPrice());
             userRepository.update(user);
         } else {
-            System.out.println("Hisobgingizdagi mablag yetarli emas");
+            System.out.println("Hisobgingizdagi mablag yetarli emas❗️");
         }
     }
 
@@ -150,11 +146,15 @@ public class UserUI {
                         if (user.getBalance() >= allPrice) {
                             user.setBoughtProductsHistory(basket);
                             for (Product product : basket) {
-                                product.setStatus(Status.DELIVERED);
+                                executor.schedule(() -> {
+                                    product.setStatus(Status.DELIVERED);
+                                }, 1, TimeUnit.MINUTES);
+
                                 user.getBasket().remove(product);
                             }
                             user.setBalance(user.getBalance() - allPrice);
 
+                            userRepository.update(user);
                             System.out.println("Product sotib olindi❗" + "\n");
                         } else {
                             System.out.println("Balansingizda mablag' yetarli emas❗");
@@ -175,7 +175,7 @@ public class UserUI {
                         user.getBasket().removeAll(basket);
                     }
                     case "0" -> isExited = true;
-                    default -> System.out.println("Notog'ri buyrug' kiritdingiz!");
+                    default -> System.out.println("Notog'ri buyrug' kiritdingiz❗️");
                 }
             } else {
                 System.out.println("Sizda birorta ham product yo'q❗" + "\n");
@@ -250,7 +250,7 @@ public class UserUI {
                 case 2 -> changePhoneNumber(user);
                 case 3 -> changeEmail(user);
                 case 0 -> isExited = true;
-                default -> System.out.println("Noto'g'ri buyruq kiritdingiz");
+                default -> System.out.println("Noto'g'ri buyruq kiritdingiz❗️");
             }
         }
 

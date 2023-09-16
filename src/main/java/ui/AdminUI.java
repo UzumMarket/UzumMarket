@@ -142,7 +142,8 @@ public class AdminUI {
                                 4. Narxini o`zgartirish
                                 5. Izohini o`zgartirish
                                  
-                                0. Chiqish>>""");
+                                0. Chiqish
+                                >>""");
                         int command3 = scannerInt.nextInt();
 
                         switch (command3) {
@@ -274,7 +275,6 @@ public class AdminUI {
         }
 
     }
-
 
     private void viewProductsList() {
         boolean isExit = false;
