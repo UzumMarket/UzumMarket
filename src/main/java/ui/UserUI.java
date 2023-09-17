@@ -76,9 +76,9 @@ public class UserUI {
 
                 int command1 = scannerInt.nextInt();
 
-                if (command1 > 0 && command1 <= categoriesService.getAll().size()) {
+                if (command1 > 0 && command1 <= productService.getAll().size()) {
 
-                    Product product = productService.getAll().get(command1 - 1);
+                    Product product = productService.findByCategoryId(id).get(command1 - 1);
 
                     System.out.print(""" 
                             1 ⇨ Savatga qo'shish
@@ -155,6 +155,7 @@ public class UserUI {
                                 }, 1, TimeUnit.MINUTES);
                                 basket1.remove(product);
                             }
+
                             user.setBasket(basket1);
                             user.setBalance(user.getBalance() - allPrice);
 
