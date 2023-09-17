@@ -4,34 +4,24 @@ import user.User;
 import user.UserService;
 import user.UserType;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
-import java.util.UUID;
+import java.util.*;
 
 public class Controller implements UI {
-
     private final UserService userService = UserService.getInstance();
-
     private final Scanner scannerInt = new Scanner(System.in);
     private final Scanner scannerStr = new Scanner(System.in);
 
     @Override
     public void start() {
-
         boolean isExit = false;
-
         while (!isExit) {
             System.out.println("""
                     1. Ro'yhatdan O'tish
                     2. Kirish
                     0. Chiqish
-                     """);
-
-            System.out.print(">> ");
+                    >>\s""");
 
             int key = scannerInt.nextInt();
-
             switch (key) {
                 case 1 -> createAccount();
                 case 2 -> login();
@@ -39,7 +29,6 @@ public class Controller implements UI {
                 default -> System.out.println("Noto'g'ri buyruq kiritildi!");
             }
         }
-
     }
 
     private void createAccount() {
@@ -99,8 +88,7 @@ public class Controller implements UI {
                             UserUI userUI = new UserUI();
                             userUI.start(user);
                         }
-                    }
-                    else {
+                    } else {
                         System.out.println("Email yoki password xato❗");
                     }
                     break;
@@ -110,13 +98,6 @@ public class Controller implements UI {
             System.out.println("Email topilmadi. Qaytadan urinib ko'ring ↻");
         }
     }
-
-//-Maxsulotlarni kiritish
-//-Maxsulotlar ro`yxatini ko`rish
-//-Admin qo`shish
-//-Admin o`chirish
-//-Mahsulot categoriyalariga o`zgartirish kiritish
-//-Mahsulotlarga o`zgartirish kirirtish
 
 }
 

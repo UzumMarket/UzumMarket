@@ -99,7 +99,6 @@ public class UserUI {
         }
     }
 
-
     private void purchase(Product product, User user) {
         if (user.getBalance() >= product.getPrice()) {
             List<Product> boughtProductsHistory = user.getBoughtProductsHistory();
@@ -119,7 +118,6 @@ public class UserUI {
         user.setBasket(basket);
         userRepository.update(user);
     }
-
 
     private void savatim(UUID uuid) {
         boolean isExited = false;
@@ -179,10 +177,14 @@ public class UserUI {
                         user.setBasket(basket1);
                         userRepository.update(user);
                         System.out.println("Product o'chirildi✅" + "\n");
+                        if (user.getBasket().size() == 0) {
+                            isExited = true;
+                        }
                     }
                     case "%" -> {
                         user.setBasket(new ArrayList<>());
                         userRepository.update(user);
+                        System.out.println("\uD83D\uDDD1Savat tozalandi" + "\n");
                         isExited = true;
                     }
                     case "0" -> isExited = true;
@@ -201,7 +203,12 @@ public class UserUI {
                 System.out.println("Mahsulot nomi ⇨ " + product.getName());
                 System.out.println("Mahsulot tarifi ⇨ " + product.getDescription());
                 System.out.println("Mahsulot modeli ⇨ " + product.getModel());
-                System.out.println("Mahsulot narxi ⇨ " + product.getPrice());
+                if (product.getStatus().equals(Status.START)) {
+                    System.out.println("Mahsulot statusi ⇨ Mahsulot yetkazib berilyapti");
+                } else if (product.getStatus().equals(Status.DELIVERED)) {
+                    System.out.println("Mahsulot statusi ⇨ Mahsulot yetkazib berildi");
+                }
+                System.out.println("Mahsulot narxi ⇨ " + product.getPrice() + "\n");
             }
         } else {
             System.out.println("Siz biror martta ham mahsulot harid qilmagansiz❗" + "\n");
