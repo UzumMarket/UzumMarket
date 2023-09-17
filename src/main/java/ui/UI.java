@@ -1,6 +1,10 @@
 package ui;
 
+import jakarta.mail.MessagingException;
+
+import java.io.IOException;
+
 @FunctionalInterface
 public interface UI {
-    void start();
+    void start() throws MessagingException, IOException;
 }
