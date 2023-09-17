@@ -6,7 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="1cce45e6-4b76-45e5-acc8-023eabb41a8b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ui/AdminUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/AdminUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ui/UserUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/UserUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,6 +101,10 @@
       <workItem from="1694847125762" duration="1689000" />
       <workItem from="1694851754235" duration="81000" />
       <workItem from="1694858155269" duration="340000" />
+      <workItem from="1694879866245" duration="111000" />
+      <workItem from="1694881436121" duration="594000" />
+      <workItem from="1694927452389" duration="328000" />
+      <workItem from="1694952690115" duration="1332000" />
     </task>
     <task id="LOCAL-00001" summary="Entity">
       <created>1692694492175</created>

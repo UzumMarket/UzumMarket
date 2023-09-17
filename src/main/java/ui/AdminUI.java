@@ -2,7 +2,6 @@ package ui;
 
 import categories.Categories;
 import categories.CategoriesService;
-import jdk.jfr.Category;
 import product.Product;
 import product.ProductRepository;
 import product.ProductService;
@@ -13,12 +12,12 @@ import user.UserService;
 import user.UserType;
 
 import java.util.List;
-import java.util.Locale;
 import java.util.Optional;
 import java.util.Scanner;
 import java.util.UUID;
 
 public class AdminUI {
+
 
     public static Scanner scannerInt = new Scanner(System.in);
     public static Scanner scannerStr = new Scanner(System.in);
