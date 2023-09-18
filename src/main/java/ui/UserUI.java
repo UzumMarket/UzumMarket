@@ -43,7 +43,7 @@ public class UserUI {
 
             int command = scannerInt.nextInt();
             switch (command) {
-                case 1 -> mahsulotXaridQilish(user);
+                case 1 -> mahsulotXaridQilish(user.getId());
                 case 2 -> savatim(user.getId());
                 case 3 -> xaridQilganMahsulotlarimTarixi(user);
                 case 4 -> mablag(user);
@@ -54,7 +54,8 @@ public class UserUI {
         }
     }
 
-    private void mahsulotXaridQilish(User user) {
+    private void mahsulotXaridQilish(UUID uuid) {
+        User user = userService.findById(uuid).get();
         if (categoriesService.getAll().size() > 0) {
             System.out.println("Mahsulotlar categoriyasini tanlang: ");
             int count = 0;
@@ -136,6 +137,7 @@ public class UserUI {
                     allPrice += product.getPrice();
                     count++;
                 }
+
                 System.out.println("\nJami summa: " + allPrice);
                 System.out.println("\n#.Sotib olish");
                 System.out.println("*.O'chirish");
@@ -147,23 +149,25 @@ public class UserUI {
                 switch (key) {
                     case "#" -> {
                         if (user.getBalance() >= allPrice) {
-                            user.setBoughtProductsHistory(basket);
-                            List<Product> basket1 = user.getBasket();
 
-                            for (Product product : user.getBasket()) {
-                                final Product product1 = product;
-                                executor.schedule(() -> {
-                                    product1.setStatus(Status.DELIVERED);
-                                    ProductRepository.getInstance().update(product1);
-                                }, 1, TimeUnit.MINUTES);
-                                basket1.remove(product1);
+                            for (Product product : basket) {
+                                product.setStatus(Status.DELIVERED);
                             }
 
-                            user.setBasket(basket1);
+                            List<Product> boughtProductsHistory = user.getBoughtProductsHistory();
+                            boughtProductsHistory.addAll(basket);
+
+                            user.setBoughtProductsHistory(boughtProductsHistory);
+
+                            List<Product> products = new ArrayList<>();
+                            user.setBasket(products);
+
                             user.setBalance(user.getBalance() - allPrice);
 
                             userRepository.update(user);
+
                             System.out.println("Product sotib olindi❗" + "\n");
+
                         } else {
                             System.out.println("Balansingizda mablag' yetarli emas❗");
                         }
