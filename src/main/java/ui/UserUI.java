@@ -3,6 +3,7 @@ package ui;
 import categories.Categories;
 import categories.CategoriesService;
 import product.Product;
+import product.ProductRepository;
 import product.ProductService;
 import product.Status;
 import user.User;
@@ -149,11 +150,13 @@ public class UserUI {
                             user.setBoughtProductsHistory(basket);
                             List<Product> basket1 = user.getBasket();
 
-                            for (Product product : basket) {
+                            for (Product product : user.getBasket()) {
+                                final Product product1 = product;
                                 executor.schedule(() -> {
-                                    product.setStatus(Status.DELIVERED);
+                                    product1.setStatus(Status.DELIVERED);
+                                    ProductRepository.getInstance().update(product1);
                                 }, 1, TimeUnit.MINUTES);
-                                basket1.remove(product);
+                                basket1.remove(product1);
                             }
 
                             user.setBasket(basket1);
@@ -279,16 +282,14 @@ public class UserUI {
     private void changeEmail(User user) {
         System.out.print("Yangi email kiriting: ");
         String newEmail = scannerStr.nextLine();
-        List<User> users = userRepository.getAll();
-        for (User user1 : users) {
-            if (user1.getEmail().equals(newEmail)) {
-                System.out.println("Bu email allaqachon mavjud");
-            } else {
-                user.setEmail(newEmail);
-                userRepository.update(user);
-                System.out.println("Email muvaffaqiyatli o'zagartirildi");
-                System.out.println();
-            }
+
+        if (user.getEmail().equals(newEmail)) {
+            System.out.println("Bu email allaqachon mavjud");
+        } else {
+            user.setEmail(newEmail);
+            userRepository.update(user);
+            System.out.println("Email muvaffaqiyatli o'zagartirildi");
+            System.out.println();
         }
     }
 
