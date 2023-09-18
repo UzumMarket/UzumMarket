@@ -290,30 +290,31 @@ public class UserUI {
     private void changeEmail(User user) {
         System.out.print("Yangi email kiriting: ");
         String newEmail = scannerStr.nextLine();
-
-        if (user.getEmail().equals(newEmail)) {
-            System.out.println("Bu email allaqachon mavjud");
+        if (!userService.isExist(newEmail)) {
+            if (user.getEmail().equals(newEmail)) {
+                System.out.println("Bu email allaqachon mavjud");
+            } else {
+                user.setEmail(newEmail);
+                userRepository.update(user);
+                System.out.println("Email muvaffaqiyatli o'zagartirildi");
+                System.out.println();
+            }
         } else {
-            user.setEmail(newEmail);
-            userRepository.update(user);
-            System.out.println("Email muvaffaqiyatli o'zagartirildi");
-            System.out.println();
+            System.out.println("Bu email bazada mavjud!");
         }
     }
 
     private void changePhoneNumber(User user) {
         System.out.print("Yangi raqam kiriting: ");
         String newPhoneNumber = scannerStr.nextLine();
-        List<User> users = userRepository.getAll();
-        for (User user1 : users) {
-            if (user1.getPhoneNumber().equals(newPhoneNumber)) {
-                System.out.println("Bu telefon raqam allaqachon foydalanilgan");
-            } else {
-                user.setPhoneNumber(newPhoneNumber);
-                userRepository.update(user);
-                System.out.println("Raqam muvaffaqiyatli o'zgartirildi");
-                System.out.println();
-            }
+        if (user.getPhoneNumber().equals(newPhoneNumber)) {
+            System.out.println("Bu telefon raqam allaqachon foydalanilgan");
+        } else {
+            user.setPhoneNumber(newPhoneNumber);
+            userRepository.update(user);
+            System.out.println("Raqam muvaffaqiyatli o'zgartirildi");
+            System.out.println();
+
         }
     }
 

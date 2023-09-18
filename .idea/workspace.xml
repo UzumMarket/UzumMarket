@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1cce45e6-4b76-45e5-acc8-023eabb41a8b" name="Changes" comment="Email Togirlandi">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ui/UserUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/UserUI.java" afterDir="false" />
-    </list>
+    <list default="true" id="1cce45e6-4b76-45e5-acc8-023eabb41a8b" name="Changes" comment="Bag Togirlandi!" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -189,7 +186,14 @@
       <option name="project" value="LOCAL" />
       <updated>1695023500815</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Bag Togirlandi!">
+      <created>1695040363554</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1695040363554</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -217,13 +221,7 @@
     <MESSAGE value="Baglar Togirlandi" />
     <MESSAGE value="test11" />
     <MESSAGE value="Email Togirlandi" />
-    <option name="LAST_COMMIT_MESSAGE" value="Email Togirlandi" />
-  </component>
-  <component name="XDebuggerManager">
-    <pin-to-top-manager>
-      <pinned-members>
-        <PinnedItemInfo parentTag="user.User" memberName="basket" />
-      </pinned-members>
-    </pin-to-top-manager>
+    <MESSAGE value="Bag Togirlandi!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Bag Togirlandi!" />
   </component>
 </project>
