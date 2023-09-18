@@ -96,6 +96,8 @@ public class UserUI {
                     System.out.println("Noto'g'ri buyrug' kiritdingiz❗️");
                 }
             }
+        } else {
+            System.out.println("Birorta ham mahsulot yo'q❗️");
         }
     }
 
