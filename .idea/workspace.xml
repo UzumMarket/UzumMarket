@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1cce45e6-4b76-45e5-acc8-023eabb41a8b" name="Changes" comment="Baglar Togirlandi">
+    <list default="true" id="1cce45e6-4b76-45e5-acc8-023eabb41a8b" name="Changes" comment="test11">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ui/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ui/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/UI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ui/UserUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/UserUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -177,7 +174,15 @@
       <option name="project" value="LOCAL" />
       <updated>1694954079579</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="test11">
+      <option name="closed" value="true" />
+      <created>1694979174145</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1694979174145</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -192,6 +197,7 @@
     <MESSAGE value="UIlar qoshildi!" />
     <MESSAGE value="mahsulot harid qilish tugati" />
     <MESSAGE value="Baglar Togirlandi" />
-    <option name="LAST_COMMIT_MESSAGE" value="Baglar Togirlandi" />
+    <MESSAGE value="test11" />
+    <option name="LAST_COMMIT_MESSAGE" value="test11" />
   </component>
 </project>
