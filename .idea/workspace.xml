@@ -220,14 +220,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="Email Togirlandi" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ui/UserUI.java</url>
-          <line>170</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="user.User" memberName="basket" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
 </project>
