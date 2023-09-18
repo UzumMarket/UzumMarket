@@ -3,7 +3,6 @@ package ui;
 import categories.Categories;
 import categories.CategoriesService;
 import product.Product;
-import product.ProductRepository;
 import product.ProductService;
 import product.Status;
 import user.User;
@@ -14,16 +13,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.UUID;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
 
 public class UserUI {
     private final UserService userService = UserService.getInstance();
     private final CategoriesService categoriesService = CategoriesService.getInstance();
     private final ProductService productService = ProductService.getInstance();
     private final UserRepository userRepository = UserRepository.getInstance();
-    private final ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
     Scanner scannerInt = new Scanner(System.in);
     Scanner scannerStr = new Scanner(System.in);
 
@@ -31,17 +26,17 @@ public class UserUI {
         boolean isExited = false;
         while (!isExited) {
             System.out.print("""
-                    1 ⇨ Mahsulot Xarid Qilish
-                    2 ⇨ Savatim
-                    3 ⇨ Xarid Qilgan Mahsulotlarim Tarixi
-                    4 ⇨ Mablag'
-                    5 ⇨ Sozlamalar
+                    1 ⇨ 🛒Mahsulot Xarid Qilish
+                    2 ⇨ 🧺Savatim
+                    3 ⇨ 🧾Xarid Qilgan Mahsulotlarim Tarixi
+                    4 ⇨ 💰Mablag'
+                    5 ⇨ ⚙️Sozlamalar
                                         
-                    0 ⇨ Chiqish
+                    0 ⇨ 🔙Chiqish
                                     
-                    >>\s""");
-
+                    ⇒\s""");
             int command = scannerInt.nextInt();
+
             switch (command) {
                 case 1 -> mahsulotXaridQilish(user.getId());
                 case 2 -> savatim(user.getId());
@@ -49,7 +44,7 @@ public class UserUI {
                 case 4 -> mablag(user);
                 case 5 -> sozlamalar(user);
                 case 0 -> isExited = true;
-                default -> System.out.println("Notog'ri burug' kiritdingiz");
+                default -> System.out.println("Notog'ri burug' kiritdingiz❗");
             }
         }
     }
@@ -63,8 +58,8 @@ public class UserUI {
                 count++;
                 System.out.println(count + ". " + categories.getName());
             }
-            System.out.println("\n0. Chiqish\n");
-            System.out.print(">> ");
+            System.out.println("\n0. 🔙Chiqish\n");
+            System.out.print("⇒ ");
 
             int command = scannerInt.nextInt();
             if (command > 0 && command <= categoriesService.getAll().size()) {
@@ -76,20 +71,18 @@ public class UserUI {
                     System.out.println(count + ". " + product.getName());
                 }
 
-                System.out.print(">> ");
-
+                System.out.print("⇒ ");
                 int command1 = scannerInt.nextInt();
 
                 if (command1 > 0 && command1 <= productService.getAll().size()) {
-
                     Product product = productService.findByCategoryId(id).get(command1 - 1);
 
                     System.out.print(""" 
-                            1 ⇨ Savatga qo'shish
-                            2 ⇨ Sotib olish
+                            1 ⇨ 🧺Savatga qo'shish
+                            2 ⇨ 💵Sotib olish
 
-                            0 ⇨ Chiqish
-                            >>\s""");
+                            0 ⇨ 🔙Chiqish
+                            ⇒\s""");
                     int command12 = scannerInt.nextInt();
                     switch (command12) {
                         case 1 -> addBacket(product, user);
@@ -112,7 +105,9 @@ public class UserUI {
             product.setStatus(Status.DELIVERED);
             user.setBoughtProductsHistory(boughtProductsHistory);
             user.setBalance(user.getBalance() - product.getPrice());
+
             userRepository.update(user);
+            System.out.println("Xaridingiz uchun rahmat😊");
         } else {
             System.out.println("Hisobgingizdagi mablag yetarli emas❗️");
         }
@@ -122,6 +117,7 @@ public class UserUI {
         List<Product> basket = user.getBasket();
         basket.add(product);
         user.setBasket(basket);
+
         userRepository.update(user);
     }
 
@@ -140,35 +136,29 @@ public class UserUI {
                     count++;
                 }
 
-                System.out.println("\nJami summa: " + allPrice);
-                System.out.println("\n#.Sotib olish");
-                System.out.println("*.O'chirish");
-                System.out.println("%.Savatni tozalash");
-                System.out.println("0.Chiqish" + "\n");
+                System.out.println("\n\uD83E\uDDFEJami summa: " + allPrice);
+                System.out.println("\n#. 💵Sotib olish");
+                System.out.println("*. ❌O'chirish");
+                System.out.println("%. 🧹Savatni tozalash");
+                System.out.println("0. 🔙Chiqish" + "\n");
 
-                System.out.print(">> ");
+                System.out.print("⇒ ");
                 String key = scannerStr.nextLine();
                 switch (key) {
                     case "#" -> {
                         if (user.getBalance() >= allPrice) {
-
                             for (Product product : basket) {
                                 product.setStatus(Status.DELIVERED);
                             }
-
                             List<Product> boughtProductsHistory = user.getBoughtProductsHistory();
                             boughtProductsHistory.addAll(basket);
-
                             user.setBoughtProductsHistory(boughtProductsHistory);
-
                             List<Product> products = new ArrayList<>();
                             user.setBasket(products);
-
                             user.setBalance(user.getBalance() - allPrice);
 
                             userRepository.update(user);
-
-                            System.out.println("Product sotib olindi❗" + "\n");
+                            System.out.println("Xaridingiz uchun rahmat😊" + "\n");
                             if (products.size() == 0) {
                                 isExited = true;
                             }
@@ -188,6 +178,7 @@ public class UserUI {
                         List<Product> basket1 = user.getBasket();
                         basket1.remove(product);
                         user.setBasket(basket1);
+
                         userRepository.update(user);
                         System.out.println("Product o'chirildi✅" + "\n");
                         if (user.getBasket().size() == 0) {
@@ -196,8 +187,9 @@ public class UserUI {
                     }
                     case "%" -> {
                         user.setBasket(new ArrayList<>());
+
                         userRepository.update(user);
-                        System.out.println("\uD83D\uDDD1Savat tozalandi" + "\n");
+                        System.out.println("🧹 Savat tozalandi" + "\n");
                         isExited = true;
                     }
                     case "0" -> isExited = true;
@@ -219,7 +211,7 @@ public class UserUI {
                 if (product.getStatus().equals(Status.START)) {
                     System.out.println("Mahsulot statusi ⇨ Mahsulot yetkazib berilyapti");
                 } else if (product.getStatus().equals(Status.DELIVERED)) {
-                    System.out.println("Mahsulot statusi ⇨ Mahsulot yetkazib berildi");
+                    System.out.println("Mahsulot statusi ⇨ Mahsulot yetkazib berildi\uD83D\uDE97");
                 }
                 System.out.println("Mahsulot narxi ⇨ " + product.getPrice() + "\n");
             }
@@ -238,14 +230,10 @@ public class UserUI {
 
             String password = user.getPassword();
             int length = password.length();
-            StringBuilder pas = new StringBuilder();
-            for (int i = 0; i < length; i++) {
-                pas.append("*");
-            }
-            System.out.println("Sizning parolingiz ⇨ " + pas);
+            System.out.println("Sizning parolingiz ⇨ " + "*".repeat(length));
             System.out.println("Sizning balansingiz ⇨ " + user.getBalance() + "\n");
-            System.out.println("1.Balans qo'shish");
-            System.out.println("0.Chiqish");
+            System.out.println("1. ➕Balans qo'shish");
+            System.out.println("0. 🔙Chiqish");
 
             int key = scannerInt.nextInt();
             switch (key) {
@@ -253,7 +241,6 @@ public class UserUI {
                 case 0 -> isExited = true;
                 default -> System.out.println("Notog'ri buyrug' kiritdingiz❗" + "\n");
             }
-
         }
     }
 
@@ -270,10 +257,10 @@ public class UserUI {
         boolean isExited = false;
         while (!isExited) {
             System.out.print("""
-                    1. Parolni o'zgartirish
-                    2. Telefon raqamni o'zgartirish
-                    3. Email ni o'zgartirish
-                    0. Chiqish
+                    1. 🛅Parolni o'zgartirish
+                    2. 📞Telefon raqamni o'zgartirish
+                    3. 📧Email ni o'zgartirish
+                    0. 🔙Chiqish
                     >> \s""");
             int command = scannerInt.nextInt();
             switch (command) {
@@ -281,55 +268,51 @@ public class UserUI {
                 case 2 -> changePhoneNumber(user);
                 case 3 -> changeEmail(user);
                 case 0 -> isExited = true;
-                default -> System.out.println("Noto'g'ri buyruq kiritdingiz❗️");
+                default -> System.out.println("Noto'g'ri buyruq kiritdingiz❗" + "\n");
             }
         }
-
     }
 
     private void changeEmail(User user) {
-        System.out.print("Yangi email kiriting: ");
+        System.out.print("Yangi email kiriting ⇒ ");
         String newEmail = scannerStr.nextLine();
         if (!userService.isExist(newEmail)) {
             if (user.getEmail().equals(newEmail)) {
-                System.out.println("Bu email allaqachon mavjud");
+                System.out.println("Bu email allaqachon mavjud❗");
             } else {
                 user.setEmail(newEmail);
                 userRepository.update(user);
-                System.out.println("Email muvaffaqiyatli o'zagartirildi");
-                System.out.println();
+                System.out.println("Email muvaffaqiyatli o'zagartirildi🎉" + "\n");
             }
         } else {
-            System.out.println("Bu email bazada mavjud!");
+            System.out.println("Bu email bazada mavjud❗");
         }
     }
 
     private void changePhoneNumber(User user) {
-        System.out.print("Yangi raqam kiriting: ");
+        System.out.print("Yangi raqamni kiriting ⇒ ");
         String newPhoneNumber = scannerStr.nextLine();
         if (user.getPhoneNumber().equals(newPhoneNumber)) {
-            System.out.println("Bu telefon raqam allaqachon foydalanilgan");
+            System.out.println("Bu telefon raqam allaqachon foydalanilgan❗");
         } else {
             user.setPhoneNumber(newPhoneNumber);
             userRepository.update(user);
-            System.out.println("Raqam muvaffaqiyatli o'zgartirildi");
-            System.out.println();
-
+            System.out.println("Raqam muvaffaqiyatli o'zgartirildi🎉" + "\n");
         }
     }
 
     private void changePassword(User user) {
-        System.out.print("Yangi parol kiriting: ");
+        System.out.print("Yangi parolni kiriting ⇒ ");
         String newPassword = scannerStr.nextLine();
-        System.out.print("Parolni qayta kiriting: ");
+        System.out.print("Parolni qayta kiriting ⇒ ");
         String newPassword2 = scannerStr.nextLine();
         if (newPassword.equals(newPassword2)) {
             user.setPassword(newPassword);
-            System.out.println("Parol muvaffaqiyatli o'zgartirildi");
+            System.out.println("Parol muvaffaqiyatli o'zgartirildi🎉");
             userRepository.update(user);
             System.out.println();
         } else {
-            System.out.println("Parol mos kelmadi");
+            System.out.println("Parol mos kelmadi❗");
         }
     }
 }

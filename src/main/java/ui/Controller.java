@@ -18,7 +18,7 @@ public class Controller implements UI {
             System.out.println("""
                     1. Ro'yhatdan O'tish
                     2. Kirish
-                    0. Chiqish
+                    0. 🔙Chiqish
                     >>\s""");
 
             int key = scannerInt.nextInt();
@@ -26,43 +26,43 @@ public class Controller implements UI {
                 case 1 -> createAccount();
                 case 2 -> login();
                 case 0 -> isExit = true;
-                default -> System.out.println("Noto'g'ri buyruq kiritildi!");
+                default -> System.out.println("Noto'g'ri buyruq kiritildi❗️");
             }
         }
     }
 
     private void createAccount() {
-        System.out.print("Ismingni kirit: ");
+        System.out.print("Ismingizni kiriting ⇒ ");
         String name = scannerStr.nextLine();
 
-        System.out.print("Familyangni kirit: ");
+        System.out.print("Familiyangizni kiriting ⇒ ");
         String surname = scannerStr.nextLine();
 
-        System.out.print("Yoshingni kiriti: ");
+        System.out.print("Yoshingizni kiriting ⇒ ");
         int age = scannerInt.nextInt();
 
-        System.out.print("Emailingni kiriti: ");
+        System.out.print("Emailingizni kiriting ⇒ ");
         String email = scannerStr.nextLine();
 
-        System.out.print("Parolingni kirit: ");
+        System.out.print("Parolingizni kiriting ⇒ ");
         String password = scannerStr.nextLine();
 
-        System.out.print("Parolni-Qayta kirit: ");
+        System.out.print("Parolni-Qayta kiriting ⇒ ");
         String repeatPassword = scannerStr.nextLine();
 
-        System.out.print("Telefon raqamni kirit: ");
+        System.out.print("Telefon raqamingizni kiriting ⇒ ");
         String number = scannerStr.nextLine();
 
         if (password.equals(repeatPassword)) {
             if (userService.isExist(email)) {
-                System.out.println("Emaildan foydalanilingan!");
+                System.out.println("\uD83D\uDCE7Bu emaildan foydalanilingan❗️");
             } else {
                 User user = new User(UUID.randomUUID(), name, surname, password, email, number, age, new ArrayList<>(), 0, UserType.USER, new ArrayList<>());
                 userService.add(user);
                 new UserUI().start(user);
             }
         } else {
-            System.out.println("Parol mos kelmadi!");
+            System.out.println("Parol mos kelmadi❗");
         }
     }
 
