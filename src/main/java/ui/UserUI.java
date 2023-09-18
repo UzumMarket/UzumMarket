@@ -57,12 +57,14 @@ public class UserUI {
     private void mahsulotXaridQilish(UUID uuid) {
         User user = userService.findById(uuid).get();
         if (categoriesService.getAll().size() > 0) {
-            System.out.println("Mahsulotlar categoriyasini tanlang: ");
+            System.out.println("⇓ Mahsulotlar categoriyasini tanlang ⇓ ");
             int count = 0;
             for (Categories categories : categoriesService.getAll()) {
                 count++;
                 System.out.println(count + ". " + categories.getName());
             }
+            System.out.println("\n0. Chiqish\n");
+            System.out.print(">> ");
 
             int command = scannerInt.nextInt();
             if (command > 0 && command <= categoriesService.getAll().size()) {
@@ -167,7 +169,9 @@ public class UserUI {
                             userRepository.update(user);
 
                             System.out.println("Product sotib olindi❗" + "\n");
-
+                            if (products.size() == 0) {
+                                isExited = true;
+                            }
                         } else {
                             System.out.println("Balansingizda mablag' yetarli emas❗");
                         }
